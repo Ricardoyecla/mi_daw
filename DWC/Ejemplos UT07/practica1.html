@@ -3,8 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        h1{
+            color:blue;
+        }
+        .negrita{
+            font-weight:bold;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1 id="cab">Práctica1</h1>
+    <ol id="inicio">
+        <li class="negrita">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus ipsam vitae labore accusantium cum veniam beatae, quod, ratione fugit porro voluptatem quasi blanditiis reiciendis quo officiis. Quibusdam, molestiae! Quia, quis.</li>
+        <li>Quo, repudiandae, soluta. Nemo rem voluptatem nisi est reiciendis quidem rerum maxime facilis ipsa deserunt, vel eos porro ad laboriosam a, nobis dignissimos, modi consequatur ea. Quasi, optio quo repudiandae?</li>
+        <li>Omnis labore expedita ut fugit rerum, voluptatum facilis ex dolorum corporis perspiciatis, consectetur commodi officia cumque eaque repellendus provident eos quidem, harum nemo aspernatur aut sequi vel, facere. Nam, natus.</li>
+        <li>Iste nam laborum cum dignissimos, qui magnam, earum nisi, eaque aperiam aliquam ullam autem incidunt ipsam quidem amet, id repudiandae odit iusto cumque maiores possimus sunt expedita? Dolore, iusto, nisi!</li>
+        <li>Soluta ut harum maxime, tenetur enim officiis eos tempore obcaecati nihil, id illo a voluptatibus, neque nulla nemo necessitatibus at hic dolore, unde atque. Expedita debitis facilis dolorem neque in.</li>
+        <li>Ex quos maxime odit quam natus! Voluptatum quas vero unde autem iste atque qui, ab quia ducimus. Eum, fuga similique iusto ex veniam neque quaerat dolorem debitis harum, incidunt tempore!</li>
+        <li>Iste quibusdam maxime similique neque repellat recusandae in delectus iusto magni repellendus dolorum pariatur soluta corporis cum voluptas quos, accusamus perspiciatis aliquid asperiores eius quisquam nostrum odit sapiente. Consectetur, deleniti.</li>
+        <li>At maxime adipisci labore. Repellat vel deleniti quis eveniet maxime? Corporis nulla consectetur animi tempora minus! Accusantium officiis vero, nisi esse ex sed dolorem magnam? Blanditiis harum rerum perferendis doloremque.</li>
+        <li>Eos mollitia voluptatibus velit odit aspernatur nihil, nesciunt, quod hic impedit adipisci numquam quisquam similique tenetur reprehenderit aut quo quaerat quibusdam cupiditate, quos nobis! Temporibus consectetur consequuntur ipsa sint debitis.</li>
+    </ol>
+    <script>
+        let texto=prompt("Introduce ");
+        if (texto!=null){
+            var pos=prompt("Introduce un número de parrafo");
+            if (pos!=null){
+                if (isNaN(pos)){
+                    var eCab=document.getElementById("cab");
+                    eCab.style.color="red";
+                } else {
+                    let nuevoN=document.createElement("li");
+                    //nuevoN.innerHTML=`<strong>${texto}</strong>`
+                    //nuevoN.style.fontWeight="bold";
+                    nuevoN.textContent=texto;
+                    nuevoN.setAttribute("class","negrita");
+                    
+                    let inicio=document.getElementById("inicio");
+                    
+                    let poscion=document.querySelector(`li:nth-child(${pos})`)  
+                    inicio.insertBefore(nuevoN,poscion); //inicio.insertBefore(nuevoN,inicio.childNodes[(pos*2)-1]);
+                    
+                }
+            }
+        }
+    </script>
 </body>
 </html>
