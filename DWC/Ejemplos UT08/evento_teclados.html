@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+      <h1 id="muestra"></h1>
+      <h1 id="muestra2"></h1>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, non.</p>
+       <p>Consequatur aspernatur excepturi <strong>alsdjfñsd</strong>laborum quae recusandae praesentium repellendus, placeat consequuntur.</p>
+       <p>Vero, sequi! Quo eligendi ullam perspiciatis tempora, est, ea fugiat!</p>
+       <input type="text">
+       
+    </div>
+       <script>
+        let mostrador=document.getElementById("muestra");
+        let mostrador2=document.getElementById("muestra2");   
+        let principal=document.querySelector("body");
+        
+        principal.addEventListener("keypress",muestraTecla);
+           
+        function muestraTecla(e){
+            mostrador.textContent=mostrador.textContent+ e.key;
+            mostrador2.textContent=mostrador2.textContent + e.shiftKey + e.location;
+        }
+    </script>
+</body>
+</html>

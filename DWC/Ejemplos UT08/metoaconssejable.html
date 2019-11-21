@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo1" >aqui hay evento</p>
+    <p>Aquí no despieta evento</p>
+    
+       <script>
+        let elP=document.getElementById("parrafo1");
+        elP.addEventListener("click",hola);
+        elP.addEventListener("click",adios);  
+           
+        function hola(){
+            alert('me Han pinchado dos')
+            
+        }
+        function adios(){
+            alert('me Han pinchado dos')
+            
+        }
+    </script>
+</body>
+</html>
