@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="cab">Empiexo</h1>
+    <script>
+        
+        let e=document.getElementById("cab");
+        var cont=10;
+        
+        var fin=setInterval(contador,1000);
+        
+        function contador(){
+            if (cont>0){
+                e.innerHTML=cont;
+                cont--;
+            }else{
+                clearInterval(fin);
+                location="https://www.google.es";
+            }    
+        }
+        
+        
+    </script>
+</body>
+</html>
