@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+      <h1 id="muestra"></h1>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, non.</p>
+       <p>Consequatur aspernatur excepturi <strong>alsdjfñsd</strong>laborum quae recusandae praesentium repellendus, placeat consequuntur.</p>
+       <p>Vero, sequi! Quo eligendi ullam perspiciatis tempora, est, ea fugiat!</p>
+       <a href="#">hola</a>
+       <spa>Pepepe</spa>
+       
+    </div>
+    
+       <script>
+        
+        let hijos=document.querySelector("div").childNodes;
+        
+           
+        for (let ele of hijos){
+            ele.addEventListener("click",quiensoy);
+        }
+        
+           
+        function quiensoy(e){
+            alert(e.target.tagName + " " + e.target.textContent);
+        }
+    </script>
+</body>
+</html>

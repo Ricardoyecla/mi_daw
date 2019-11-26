@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+      <h1 id="muestra"></h1>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, non.</p>
+       <p>Consequatur aspernatur excepturi <strong>alsdjfñsd</strong>laborum quae recusandae praesentium repellendus, placeat consequuntur.</p>
+       <p>Vero, sequi! Quo eligendi ullam perspiciatis tempora, est, ea fugiat!</p>
+       <a href="#">hola</a>
+       <spa>Pepepe</spa>
+       
+    </div>
+    
+       <script>
+        let mostrador=document.getElementById("muestra");
+        let hijos=document.querySelector("div").childNodes;
+        
+           
+        for (let ele of hijos){
+            ele.addEventListener("click",muestracoordenadas);
+        }
+        
+           
+        function muestracoordenadas(e){
+            mostrador.textContent=`coox: ${e.screenX} coodY ${e.screenY}`;
+        }
+    </script>
+</body>
+</html>

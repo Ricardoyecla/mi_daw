@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+       <p>Cambia de color</p>
+   </div>
+   
+   <script>
+    let eleDiv=document.querySelector("div");
+    let eleP=document.querySelector("p");
+       
+    eleDiv.addEventListener("click",function(ev){
+         document.body.style.backgroundColor="yellow";
+    });
+       
+    eleP.addEventListener("click", function(ev){
+         document.body.style.backgroundColor="blue";
+        ev.stopPropagation();
+    });
+       
+       
+    </script> 
+</body>
+</html>

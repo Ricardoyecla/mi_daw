@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+        }
+        p{
+            margin: 1em;
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            <button>
+                Pincha aquí
+            </button>
+        </p>
+    </div>
+    
+       <script>
+        let ediv=document.querySelector("div");
+        let ep=document.querySelector("p");
+        let eboton=document.querySelector("button");
+        ediv.addEventListener("click",muestraDiv,true);
+        ep.addEventListener("click",()=>{console.log("soy el p")});
+        eboton.addEventListener("click",()=>{console.log("soy el boton"),true}); 
+           
+        ep.removeEventListener("click",muestraDiv);
+           
+        function muestraDiv(){
+            console.log("soy el div");
+        }
+        
+    </script>
+</body>
+</html>

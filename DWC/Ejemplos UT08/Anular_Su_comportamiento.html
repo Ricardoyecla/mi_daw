@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <a href="https://www.google.es">click aquí para ir a google</a>
+   
+   <script>
+     let eleA=document.querySelector("a");
+     eleA.addEventListener("click",function(ev){
+         if(!confirm("De verdad quieres ir??"))
+             ev.preventDefault();
+     });
+       
+       
+    </script> 
+</body>
+</html>

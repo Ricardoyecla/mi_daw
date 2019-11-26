@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+       <label for="iUsu">Usuario</label>
+        <input name="iUsu" type="text" value="">
+        <p>Pasa</p>
+    </form>
+    <script>
+        let eP=document.querySelector("p");
+        let eInput=document.querySelector("input");
+        
+        eP.addEventListener("click",()=>console.log(document.forms[0][0].value));
+        // eP.addEventListener("click",()=>console.log(document.forms[0].iUsu.value));
+        
+        // eP.addEventListener("click",()=>console.log(document.forms[0]["iUsu"].value));
+        
+        eInput.addEventListener("input",(e)=>eP.textContent=e.srcElement.value);
+    </script>
+</body>
+</html>

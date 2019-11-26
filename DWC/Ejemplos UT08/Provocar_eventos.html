@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div>
+       <p>Cambia de color</p>
+       <span>HOla</span>
+   </div>
+   
+   <script>
+    let eleSpan=document.querySelector("span");
+    let eleP=document.querySelector("p");
+       
+    
+       
+       
+    eleSpan.addEventListener("click",function(ev){
+        let eClick=new Event("click");
+        eleP.dispatchEvent(eClick);
+    });
+       
+    eleP.addEventListener("click", function(ev){
+         document.body.style.backgroundColor="blue";
+    });
+       
+       
+    </script> 
+</body>
+</html>
