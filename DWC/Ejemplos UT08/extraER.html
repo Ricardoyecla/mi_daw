@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Para las cookies</h1>
+<script>
+    
+    /*if (!document.cookie){
+       document.cookie="par=0";
+       
+    }*/
+    document.cookie="par=1";
+    
+    let exp=/(par)=(1|0)/;
+    
+    console.log(document.cookie);
+    console.log(exp.exec(document.cookie));
+    
+    let cabecer=document.querySelector("h1");
+    document.cookie="par=0";
+    
+    console.log(document.cookie);
+    console.log(exp.exec(document.cookie));
+    
+    /*if (exp.exec(document.cookie)[2]=="si") {
+        cabecer.innerHTML="Vez par";
+        document.cookie="par=no";
+    }else{
+        cabecer.innerHTML="Vez impar";
+        document.cookie="par=si";
+    }*/
+</script>
+</body>
+
+
+</html>
