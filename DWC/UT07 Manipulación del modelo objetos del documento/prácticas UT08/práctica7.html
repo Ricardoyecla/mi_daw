@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Quasi quas, quo cumque quaerat.</p>
+    <p>Aut quia culpa doloribus quam.</p>
+    <p>Temporibus neque eos pariatur unde.</p>
+    <p>Suscipit, nisi. Quia, unde, cumque.</p>
+    <script>
+        var contP=0;
+        var contL=0;
+        
+        for (let parrafo of document.body.children){
+            if(parrafo.nodeName!="SCRIPT"){
+                contP=contP+parrafo.textContent.split(" ").length;
+                contL=contL+Cuenta(parrafo.textContent,".");
+            }
+        }
+        
+        function Cuenta(texto,caracter){
+            var cont=0;
+            var posicion = texto.indexOf(caracter);
+            while ( posicion != -1 ) {
+                cont++;
+                posicion = texto.indexOf(caracter,posicion+1);
+            }
+            return cont;
+        }
+        
+        console.log(contL);
+        console.log(contP);
+    </script>
+</body>
+</html>
