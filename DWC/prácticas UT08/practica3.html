@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function mapa_con_cookies(){
+            var listaC=document.cookie.split(";");
+            var mis_cookies=new Map();
+            for (e of listaC){
+                var a=e.split("=");
+                mis_cookies.set(a[0],a[1]);
+            }
+            return mis_cookies;
+        }
+        
+        
+       
+        if (document.cookie.indexOf("visitas=")==-1){
+            var aceptar=confirm("Quieres usar cookies");
+            if (aceptar){
+                var fin=new Date();
+                fin.setMonth(fin.getMonth()+12);
+                document.cookie=`visitas=1; expires=${fin.toUTCString()}`;
+                
+            }else{
+                
+                
+            }
+        }else{
+           var m=mapa_con_cookies();
+            var fin=new Date();
+            fin.setMonth(fin.getMonth()+12);
+            document.cookie=`visitas=${parseInt(m.get("visitas"))+1}; expires=${fin.toUTCString()}`;
+            document.write(m.get("visitas"));
+        }
+        
+        
+        
+        console.log(document.cookie);
+    </script>
+</body>
+</html>
