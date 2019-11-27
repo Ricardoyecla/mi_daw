@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, doloribus ratione soluta.</li>
+        <li>Ut nihil magni, vero beatae delectus ullam harum quidem, at laboriosam consequuntur.</li>
+        <li>Facere earum omnis dolores maxime. Odit culpa inventore magni alias a unde.</li>
+        <li>Dolorum ratione ipsum pariatur, maxime omnis, cum illum voluptatem animi temporibus amet.</li>
+        <li>Sequi quibusdam nam possimus at, omnis suscipit sit quos iure explicabo. Pariatur.</li>
+        <li>Aliquid adipisci cupiditate rem dicta magni, similique quisquam autem suscipit veritatis mollitia!</li>
+    </ul>
+    <script>
+        let listaLi=document.querySelectorAll("li");
+        let lineas= new Array();
+        
+        
+        for (let eP of listaLi){
+            lineas.push(eP);
+        }
+        
+        console.log(lineas);
+        lineas.sort((a,b)=>a.textContent.localeCompare(b.textContent,"es"));
+        console.log(lineas);
+        
+        let cuerpo=document.querySelector("body");
+        
+        for (e of lineas){
+            cuerpo.appendChild(e);
+        }
+        
+        
+        
+    
+    </script>
+</body>
+</html>    
