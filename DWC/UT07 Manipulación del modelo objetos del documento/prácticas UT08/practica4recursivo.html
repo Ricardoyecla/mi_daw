@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <ul>
+       <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, quam.</li>
+       <li>Natus quidem, dolorum nam accusantium modi quis magnam odio voluptatum.</li>
+       <li>Possimus minus ut tempore odio culpa voluptatibus ipsum, ullam quibusdam!</li>
+       <li>Mollitia temporibus quo non ullam sunt, iusto ratione doloribus possimus.</li>
+       <li>Aperiam hic nemo corrupti rem, maxime! Assumenda cum maiores commodi.</li>
+       <li>Placeat, enim vitae ad iure aliquam quos similique omnis excepturi?</li>
+   </ul>
+</body>
+    <script>
+        let palabra=prompt("Indica la palabra a poner en negrita: ")
+        if (palabra){
+            buscarCadena(document.body,palabra);
+        }
+        
+        function buscarCadena(elemento,palabra){
+            if (elemento.children){
+                for (let elementoHijo of elemento.children){
+                    if(elementoHijo.children.length>0){
+                        buscarCadena(elementoHijo,palabra);
+                    }
+                    else {
+                        pasarNegrita(elementoHijo,palabra);
+                    }
+                }
+            } 
+        }
+        
+        function pasarNegrita(elemento,palabra){
+            let expReg=new RegExp(palabra,"g");
+            if(elemento.textContent.indexOf(palabra)!=-1){
+                    elemento.innerHTML= elemento.innerHTML.replace(expReg,`<strong>${palabra}</strong>`)
+            }   
+        }
+         
+    </script>
+</html>
+
