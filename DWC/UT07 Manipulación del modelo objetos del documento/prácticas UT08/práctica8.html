@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Quasi quas, quo cumque quaerat.</p>
+    <p>Aut quia culpa doloribus quam.</p>
+    <p>Temporibus neque eos pariatur unde.</p>
+    <p>Suscipit, nisi. Quia, unde, cumque.</p>
+    <script>
+        let todoP=document.querySelectorAll("p");
+        let lineas= new Array();
+        let fila=0;
+        let posicion=0;
+        
+        for (let eP of todoP){
+            lineas.push(eP.textContent);
+            eP.textContent="";
+        }
+
+        
+        var stop=setInterval(MaquinaDeEscribir,200);
+        
+        function MaquinaDeEscribir (){
+            todoP[fila].textContent=todoP[fila].textContent + lineas[fila][posicion]
+            posicion++
+            if (posicion>lineas[fila].length-1){
+                fila++;
+                posicion=0;
+            }
+            console.log(`${fila}:${lineas.length}`)
+            if (fila >= lineas.length){
+                clearInterval(stop);
+            }
+        }
+        console.log(lineas);
+    </script>
+</body>
+</html>
