@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut libero, placeat distinctio culpa maxime veritatis, impedit error velit nihil perferendis!</p>
+    <p>Facere placeat laboriosam et modi voluptatem totam quis debitis, perferendis, incidunt at, ea adipisci molestias assumenda? Eligendi voluptatibus, autem accusamus!</p>
+    <p>Fugit quos, dicta, magnam, fuga eius facere vitae necessitatibus amet sed corporis qui ad nisi modi velit accusamus, consequuntur minus!</p>
+    <p>Alias autem saepe error voluptates nobis? Odio placeat dolorum sequi assumenda odit nemo esse autem fugiat, alias consectetur, aliquam quos.</p>
+    <p>Quo et doloribus deleniti enim quaerat vitae praesentium eos hic, accusantium deserunt perferendis eaque dolorem maiores voluptatum fugit, quae incidunt.</p>
+    <p>Non temporibus atque sapiente porro aperiam error facilis, cum doloremque numquam officiis hic laborum vero, mollitia pariatur! Illum, veritatis, magni!</p>
+    <p>Deserunt inventore ea aliquam, earum cupiditate obcaecati distinctio modi non eveniet, illum aut nisi atque eius vero, accusantium sed officiis.</p>
+    <p>Consectetur nobis autem, qui ipsam magnam hic expedita, ducimus molestias eligendi quia porro, quis voluptates, vitae cumque suscipit velit deleniti.</p>
+    <p>Nisi velit reiciendis, quis! Quae impedit nostrum, voluptates modi esse expedita tenetur incidunt sed error quibusdam officia beatae qui numquam.</p>
+    <p>Quaerat nemo quibusdam, sequi qui cumque numquam et a molestiae odit, unde impedit esse fugit error minima quis eius ullam.</p>
+</body>
+    <script>
+        let palabra=prompt("Indica la palabra a poner en negrita: ")
+        if (palabra){
+            let expReg=new RegExp(palabra,"g");
+            for (let elemento of document.body.children) {
+                if(elemento.textContent.indexOf(palabra)!=-1){
+                    elemento.innerHTML= elemento.innerHTML.replace(expReg,`<strong>${palabra}</strong>`)
+                }
+            }
+        }
+    </script>
+</html>
+
