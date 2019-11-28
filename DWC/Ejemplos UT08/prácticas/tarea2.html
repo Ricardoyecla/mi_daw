@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #gato{
+            position: fixed;
+            top:0px;
+            left: 0px;
+            height: 60px;
+            width: 60px;
+            
+        }
+        img{
+            height: 60px;
+            width: 60px;
+        }
+    </style>
+</head>
+<body id="fondo">
+   <h1>Pulsa k</h1>
+    <script>
+        var cambiador=false;
+        document.addEventListener("keypress",function(e){
+            if (e.key=='k'){
+                let fondo=document.getElementById("fondo");
+               
+               fondo.style.backgroundColor='black'; fondo.style.background="url('http://source.unsplash.com/random')";
+               
+            }
+        });
+    
+    </script>
+</body>
+</html>
