@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Untitled Document</title>
+
+    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+</head>
+<body>
+<h1>Ejemplo jQuery</h1>
+<p id="porId">Me cambian de color</p>
+<ul>
+    <li class="primero">Uno</li>
+    <li>Dos</li>
+    <li>Tres</li>
+</ul>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //Seleccionar por ID
+        $("#porId").click(()=>$("#porId")[0].style.color="pink"); 
+        
+        //Seleccionar por clase
+        $(".primero").click(()=>$(".primero")[0].style.color="blue"); 
+        
+       
+    });
+
+</script>
+
+</body>
+
+</html>
