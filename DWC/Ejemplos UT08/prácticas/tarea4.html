@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            position: fixed;
+            top:25%;
+            left: 25%;
+            height: 50%;
+            width: 50%;
+            border: 1px solid black;
+            
+        }
+        
+    </style>
+</head>
+<body>
+   <h1>Cargando...</h1>
+    <script>
+        var cont=0;
+        var stop=setInterval(cargando,500);
+        
+        function cargando(){
+            cont++;
+            var eH1=document.querySelector("h1");
+            switch (cont%3) {
+                case 0:
+                    eH1.textContent="Cargando.";
+                case 1:
+                    eH1.textContent="Cargando..";
+                case 2:
+                    eH1.textContent="Cargando...";
+            }
+            
+            
+        }
+        
+    </script>
+</body>
+</html>
