@@ -14,13 +14,22 @@
 </head>
 <body>
 <h1>Ejemplo jQuery</h1>
-<p id="porId">Me cambian de color</p>
-<ul>
+<p id="porId">Me cambian de <strong>color</strong></p>
+<ul class="lista">
     <li class="primero">Uno</li>
-    <li>Dos</li>
-    <li>Tres</li>
+    <li>Dos y <strong>Dos</strong></li>
+    <li class="primero">Tres</li>
 </ul>
+<input type="text" name="usuario">
+<input type="text" name="clave">
 
+<div class="dentro">
+    <div>
+        <p>Hola dentro de dentro y un div<a href="#">ir</a></p>
+    </div>
+    <p>Hola dentro de dentro<a href="#">ir2</a></p>
+</div>
+<p>Hola sin dentro<a href="#">ir3</a></p>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -30,7 +39,30 @@
         //Seleccionar por clase
         $(".primero").click(()=>$(".primero")[0].style.color="blue"); 
         
-       
+        //seleccinar por clase pero
+        //Todos los elementos de un tipo(li) pero de una clase en concreto.
+        $("li.primero").click(()=>{
+            $(".primero")[0].style.color="green";
+            $(".primero")[1].style.color="green";
+        }); 
+        
+        
+        // Por etiqueta o tag
+        
+        $('li').click(()=>{
+            $("li")[0].style.color="red";
+            $("li")[1].style.color="red";
+            $("li")[2].style.color="red";
+        }); 
+        
+        // Por etiquete pero por uno de sus atributos.
+        
+        $('input[name=usuario]').blur(()=>$('input[name=clave]').val("FDSF"));
+        
+        //Por selectores css
+        
+        $(".dentro a").click(()=>alert("xxxxxxxxxxxxxxxxx"));
+
     });
 
 </script>
