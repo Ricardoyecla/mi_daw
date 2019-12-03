@@ -47,5 +47,21 @@ $(document).ready(function(){
         $("#contenido").html(inText.val());
     })
     
+    $("#btA").click(function(e){
+        e.preventDefault();
+        $("#lista").append('<li>'+$("#nombre").val() +'</li>')
+    })
+    
+    var parrafo1=$("#parrafo1");
+    
+    $("#au1").click(function(){
+        $("#parrafo1").hide(1000)   
+    });
+    $("#di1").click(function(){
+        parrafo1.show(2000);    
+    });
+    $("#in1").click(function(){
+        parrafo1.toggle(2000);    
+    });
     
 })
