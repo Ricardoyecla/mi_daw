@@ -8,7 +8,9 @@
     <meta name="author" content="">
     
     <title>Starter Template · Bootstrap</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     
     <!--Template based on URL below-->
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
@@ -18,12 +20,40 @@
 
     <!-- Place your stylesheet here
     <link href="/css/stylesheet.css" rel="stylesheet" type="text/css">-->
-
+    <style>
+        .cuadrado{
+            width: 50px;
+            height: 50px;
+        }
+        
+        .cuadrado2{
+            width: 50px;
+            height: 50px;
+            top:100px;
+            left: 0px;
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="mis_cuadrados">
+                <div class="cuadrado bg-primary mb-2" ></div>
+                <div class="cuadrado bg-success mb-2"></div>
+                <div class="cuadrado bg-danger mb-2"></div>
+            </div>
+            <button id="bAnimar" class="btn btn-info">Animar</button>
+        </div>
+        <div class="col-6">
+            
+            <div id="cuado_move" class="cuadrado2 bg-danger mb-2"></div>
+            <button id="bMove" class="btn btn-info">Animar</button>
+        </div>
+    </div>
      <div class="row justify-content-center">
         <div class="col-8">
         <h1>HOla</h1>
