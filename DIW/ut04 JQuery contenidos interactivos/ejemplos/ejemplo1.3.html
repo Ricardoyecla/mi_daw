@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Untitled Document</title>
+
+    <meta http-equiv = "Content-Type" content = "text/html; charset = utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+</head>
+<body>
+<h1>Ejemplo jQuery</h1>
+<p id="porId">Me cambian de <strong>color</strong></p>
+<ul class="lista">
+    <li class="primero">Uno</li>
+    <li>Dos y <strong>Dos</strong></li>
+    <li class="primero">Tres</li>
+</ul>
+<input type="text" name="usuario">
+<input type="text" name="clave">
+
+<div class="dentro">
+    <div>
+        <p>Hola dentro de dentro y un div<a href="#">ir</a></p>
+    </div>
+    <p>Hola dentro de dentro<a href="#">ir2</a></p>
+</div>
+<p>Hola sin dentro<a href="#">ir3</a></p>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        //Seleccionar por ID
+        $("#porId").click(()=>$("#porId")[0].style.color="pink"); 
+        
+        //Seleccionar por clase
+        $(".primero").click(()=>$(".primero")[0].style.color="blue"); 
+        
+        //seleccinar por clase pero
+        //Todos los elementos de un tipo(li) pero de una clase en concreto.
+        $("li.primero").click(()=>{
+            $(".primero")[0].style.color="green";
+            $(".primero")[1].style.color="green";
+        }); 
+        
+        
+        // Por etiqueta o tag
+        
+        $('li').click(()=>{
+            $("li")[0].style.color="red";
+            $("li")[1].style.color="red";
+            $("li")[2].style.color="red";
+        }); 
+        
+        // Por etiquete pero por uno de sus atributos.
+        
+        $('input[name=usuario]').blur(()=>$('input[name=clave]').val("FDSF"));
+        
+        //Por selectores css
+        
+        $(".dentro a").click(()=>alert("xxxxxxxxxxxxxxxxx"));
+
+    });
+
+</script>
+
+</body>
+
+</html>
