@@ -16,7 +16,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Place your stylesheet here-->
-    <link href="/css/stylesheet.css" rel="stylesheet" type="text/css">
+    
+    <script>
+    
+    window.onload=
+    function Iniciar(){
+        var sonido=document.getElementById("sonido");
+        sonido.volume=document.getElementById("volumen").value;
+        var bplay = document.getElementById("play");
+        bplay.addEventListener("click",function(){ sonido.play()});
+        var bpause =document.getElementById("pause");
+        bpause.addEventListener("click",function(){ sonido.pause()});
+        var bstop =document.getElementById("stop");
+        bstop.addEventListener("click",function(){ sonido.load()});
+    }
+        
+    </script>
 </head>
 
 <body>
@@ -24,22 +39,27 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <audio controls="controls audio-sx">
+            <audio id="sonido" controls="controls"  class="audio-sx">
                 <source src="audio/frase.mp3" type="audio/mp3">
                 <source src="audio/frase.ogg" type="audio/ogg">
             </audio>
         </div>
         <div class="col-md-4">
             <h1 class="text-center bg-primary border border-warning rounded" >Audio</h1>
-            <button class="btn btn-primary">Play</button>
+            <button class="btn btn-primary" id="play">Play</button>
+            <button class="btn btn-primary" id="stop">Stop</button>
+            <button class="btn btn-primary" id="pause">Pause</button>
+            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step=".1" min="0" max="1" value="0"></p>
+            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="1" value="0"></p>
             
         </div>
     </div>
     
 </div>
-    <script src="js/audio.js"></script>
+   
 
     <!-- Bootstrap core JavaScript
+     <script src="js/audio.js"></script>
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script
