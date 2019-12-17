@@ -21,7 +21,11 @@
     
     window.onload=
     function Iniciar(){
-        var sonido=document.getElementById("sonido");
+       
+        var sonido = new Audio();
+        sonido.src = "audio/frase.mp3";
+        sonido.loop = false;
+        /*var sonido=document.getElementById("sonido");*/
         sonido.volume=document.getElementById("volumen").value;
         var bplay = document.getElementById("play");
         bplay.addEventListener("click",function(){ sonido.play()});
