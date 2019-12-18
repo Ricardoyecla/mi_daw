@@ -21,16 +21,31 @@
     
     window.onload=
     function Iniciar(){
+        
+        
         var sonido=document.getElementById("sonido");
         sonido.volume=document.getElementById("volumen").value;
+        
+        /*var sonido = new Audio();
+        sonido.src="audio/frase.mp3"*/
+        
         var bplay = document.getElementById("play");
         bplay.addEventListener("click",function(){ sonido.play()});
         var bpause =document.getElementById("pause");
         bpause.addEventListener("click",function(){ sonido.pause()});
         var bstop =document.getElementById("stop");
         bstop.addEventListener("click",function(){ sonido.load()});
+        var rvolumen=document.getElementById("volumen");
         
+        rvolumen.addEventListener("change",function(evento){
+            sonido.volume=evento.target.value;
+        });
         
+        sonido.ontimeupdate=function(){
+            document.getElementById("tiempo").max=sonido.duration;
+            document.getElementById("tiempo").value=sonido.currentTime;
+        }
+        document.getElementById("titulo").innerHTML=sonido.currentSrc;
     }
         
     </script>
@@ -47,13 +62,13 @@
             </audio>
         </div>
         <div class="col-md-4">
-            <h1 class="text-center bg-primary border border-warning rounded" >Audio</h1>
+            <h1 class="text-center bg-primary border border-warning rounded" > <strong id="titulo"></strong></h1>
             <button class="btn btn-primary" id="play">Play</button>
             <button class="btn btn-primary" id="stop">Stop</button>
             <button class="btn btn-primary" id="pause">Pause</button>
             <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="1"></p>
             <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
-            <p id="titulo"></p>
+           
             
         </div>
     </div>

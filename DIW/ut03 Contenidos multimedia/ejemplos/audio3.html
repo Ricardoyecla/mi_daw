@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <title>Starter Template · Bootstrap</title>
+
+    
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Place your stylesheet here-->
+    
+    
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <audio id="sonido" controls="controls"  class="audio-sx">
+                <source src="audio/frase.mp3" type="audio/mp3">
+                <source src="audio/frase.ogg" type="audio/ogg">
+            </audio>
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-center bg-primary border border-warning rounded" >Audio</h1>
+            <button class="btn btn-primary" id="play">Play</button>
+            <button class="btn btn-primary" id="stop">Stop</button>
+            <button class="btn btn-primary" id="pause">Pause</button>
+            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="0.5"></p>
+            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
+            <p id="titulo"></p>
+            
+        </div>
+    </div>
+    
+</div>
+   
+
+    <!-- Bootstrap core JavaScript
+     <script src="js/audio.js"></script>
+     var rvolumnen = document.getElementById("volumen");
+        rvolumnen.addEventListener("change",function(evento){ sonido.volume=evento.target.value});
+        
+        sonido.ontimeupdate=function(){
+            document.getElementById("tiempo").max=sonido.duration;
+            document.getElementById("tiempo").value=sonido.currentTime;
+        }
+        document.getElementById("titulo").innerHTML=sonido.currentSrc;
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+   <script>
+        
+    $(document).ready(function(){
+        //Creamos objeto de audio
+        var sonido = new Audio();
+        sonido.src = "audio/frase.mp3";
+        sonido.loop = false;
+        
+        
+        sonido.volume=$("#volumen").val();
+        //var bplay = document.getElementById("play");
+        //bplay.addEventListener("click",function(){ sonido.play()});
+        
+        $("#play").click(function(){sonido.play()});
+        $("#pause").click(function(){sonido.pause()});
+        $("#stop").click(function(){sonido.load()});
+        
+        $("#volumen").change(function(evento){
+            sonido.volume=evento.target.value;
+        }); 
+      
+        
+        
+        $("#tiempo").attr("max",sonido.duration);
+        
+        sonido.ontimeupdate=function(){
+            $("#tiempo").attr("max",sonido.duration);
+            $("#tiempo").val(sonido.currentTime);
+        }
+        $("#titulo").innerHTML=sonido.currentSrc;
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
