@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        th, td{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    var datos=[{"CodProd":"1","Nombre":"Harina","Descripcion":"8 paquetes de 1kg de harina cada uno","Peso":"8","Stock":"94","Categoria":"1","Puntuacion":"110"},{"CodProd":"2","Nombre":"Sal","Descripcion":"20 paquetes de 1kg cada uno","Peso":"20","Stock":"0","Categoria":"1","Puntuacion":"156"},{"CodProd":"3","Nombre":"Agua 0.5","Descripcion":"100 botellas de 0.5 litros cada una","Peso":"51","Stock":"85","Categoria":"2","Puntuacion":"56"},{"CodProd":"4","Nombre":"Agua 1.5","Descripcion":"20 botellas de 1.5 litros cada una","Peso":"31","Stock":"45","Categoria":"2","Puntuacion":"462"},{"CodProd":"5","Nombre":"Cerveza Alhambra tercio","Descripcion":"24 botellas de 33cl","Peso":"10","Stock":"52","Categoria":"3","Puntuacion":"2"},{"CodProd":"6","Nombre":"Vino tinto Rioja 0.75","Descripcion":"6 botellas de 0.75 ","Peso":"5.5","Stock":"7","Categoria":"3","Puntuacion":"279"},{"CodProd":"7","Nombre":"Leche Puleva","Descripcion":"6 paquetes de 1 litro cada uno","Peso":"6","Stock":"20","Categoria":"1","Puntuacion":"11"},{"CodProd":"8","Nombre":"Aceite de oliva","Descripcion":"10L de aceite de oliva virgen","Peso":"10","Stock":"24","Categoria":"1","Puntuacion":"235"},{"CodProd":"9","Nombre":"JB whisky","Descripcion":"Botellas de 1 litro cada una","Peso":"1","Stock":"30","Categoria":"3","Puntuacion":"12"},{"CodProd":"10","Nombre":"Sangria Don Simon","Descripcion":"4 litro de sangria","Peso":"4","Stock":"100","Categoria":"3","Puntuacion":"4124"},{"CodProd":"12","Nombre":"Nestea ","Descripcion":"NESTEA 8 LITROS","Peso":"8","Stock":"31","Categoria":"2","Puntuacion":"11111"},{"CodProd":"14","Nombre":"Jamon iberico","Descripcion":"Jamon de pata","Peso":"4","Stock":"5","Categoria":"1","Puntuacion":"823645"},{"CodProd":"16","Nombre":"Cerveza artesanal alemana","Descripcion":"Cerveza de importaci\u00f3n alemana 2L","Peso":"2","Stock":"75","Categoria":"3","Puntuacion":"2415"}];
+        
+    /*for (i=0;i<datos.length;i++){
+        var uno = datos[i];
+        for (j in uno){
+            document.write(uno[j])
+        }
+        document.write("<br>");
+        
+    }*/
+    document.write("<table>")
+    document.write("<thead>")
+    var uno=datos[0];
+    for (j in uno){
+            document.write(`<th>${j}</th>`)
+        }    
+    document.write("</thead>")
+    for (var uno of datos){
+        document.write("<tr>");
+        for (j in uno){
+            document.write(`<td>${uno[j]}</td>`)
+        }
+        document.write("</tr>");    
+    } 
+    document.write("</table>")    
+    </script>
+</body>
+</html>
