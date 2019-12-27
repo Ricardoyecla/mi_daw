@@ -45,7 +45,7 @@ $(document).ready(function(){
         parrafo.toggleClass("display-4");    
     })
     
-    //Añadimos lo que se teclea en el input al h1
+    //Añadimos lo que se teclea en el input a un parrafo
     var inText=$("input");
     $("input").keyup(function(){
         $("#parrafo").html(inText.val());
@@ -83,7 +83,7 @@ $(document).ready(function(){
         
     });
     
-    // Animamos un botón para que desplace
+    // Animamos un botón para que desplace en cadenamos varias
     $("#An2").click(function(){
         $(".cuadrado2").animate({left:"200px",opacity: '0.5',
     height: '150px',
