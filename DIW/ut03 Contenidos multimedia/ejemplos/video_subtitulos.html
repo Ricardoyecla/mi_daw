@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <title>Starter Template · Bootstrap</title>
+
+    
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Place your stylesheet here-->
+    
+    
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 ">
+           <h2 class="bg-primary text-center  border border-warning rounded">Videos</h2>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h4 class="bg-success text-center  border border-warning rounded">Subtítulos vtt</h4>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-sm btn-primary" id="play1">Play</button>
+                        <button class="btn btn-sm btn-primary" id="stop1">Stop</button>
+                        <button class="btn btn-sm btn-primary" id="pause1">Pause</button>
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Subtítulos
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" id="ss1" href="#">Sin Subtítulo</button>
+                            <a class="dropdown-item" id="si1" href="#">Íngles</a>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <p>Volumen:<input class="form-control-range" type="range" id="volumen1" step=".1" min="0" max="1" value="0"></p>
+                    <p>Tiempo:<input class="form-control-range" type="range" id="tiempo1" step=".1" min="0" max="0" value="0"></p>
+                    
+                    <p class="alert alert-danger" id="titulo1"></p>
+                    <video id="video1" width="240" height="130">
+                        <source src="video/trailer_400p.ogg" type="video/mp4">
+                        <!-- Añadiremos posteriormente dinamicamente los subtitulos desde js
+                        <track kind="subtitles" src="video_subtitulos.vtt" srclang="en">-->
+                        Tu navegador no soporta este formamto de video
+                    </video>
+                </div>
+                <div class="col-sm-6">
+                    <h4 class="bg-success text-center  border border-warning rounded">Subtítulos cue</h4>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-sm btn-primary" id="play2">Play</button>
+                        <button class="btn btn-sm btn-primary" id="stop2">Stop</button>
+                        <button class="btn btn-sm btn-primary" id="pause2">Pause</button>
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Subtítulos
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" id="ss2" href="#">Sin Subtítulo</a>
+                            <a class="dropdown-item" id="si2" href="#">Íngles</a>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <p>Volumen:<input class="form-control-range" type="range" id="volumen2" step=".1" min="0" max="1" value="0"></p>
+                    <p>Tiempo:<input class="form-control-range" type="range" id="tiempo2" step=".1" min="0" max="0" value="0"></p>
+                    
+                    <p class="alert alert-danger" id="titulo2"></p>
+                    <video id="video2" width="240" height="130" controls>
+                        <source src="video/trailer_400p.ogg" type="video/mp4">
+                        <!-- Añadiremos posteriormente dinamicamente los subtitulos desde js
+                        <track kind="subtitles" src="video_subtitulos.vtt" srclang="en">-->
+                        Tu navegador no soporta este formamto de video
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="bg-primary text-center  border border-warning rounded" >Audio</h1>
+            <button class="btn btn-primary" id="play">Play</button>
+            <button class="btn btn-primary" id="stop">Stop</button>
+            <button class="btn btn-primary" id="pause">Pause</button>
+            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="0.5"></p>
+            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
+            <p id="titulo"></p>
+            
+        </div>
+    </div>
+    
+</div>
+   
+
+    <!-- Bootstrap core JavaScript
+     <script src="js/audio.js"></script>
+     var rvolumnen = document.getElementById("volumen");
+        rvolumnen.addEventListener("change",function(evento){ sonido.volume=evento.target.value});
+        
+        sonido.ontimeupdate=function(){
+            document.getElementById("tiempo").max=sonido.duration;
+            document.getElementById("tiempo").value=sonido.currentTime;
+        }
+        document.getElementById("titulo").innerHTML=sonido.currentSrc;
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+    // Código para mostrar subtitulos en html5 con fichero vtt.
+    
+    var video=document.getElementById("video1");
+    var vol1=document.getElementById("volumen1")
+    var tie1=document.getElementById("tiempo1");
+    
+    document.getElementById("play1").addEventListener("click",function(){video.play()});
+    document.getElementById("pause1").addEventListener("click",function(){video.pause()});
+    document.getElementById("stop1").addEventListener("click",function(){video.load()});
+    
+    video.volume=vol1.value;
+   
+    vol1.addEventListener("change",function(evento){video.volume=evento.target.value;});
+    video.addEventListener("timeupdate",function(){
+    tie1.value=video.currentTime;
+    tie1.setAttribute("max",video.duration);});
+    document.getElementById("titulo1").innerHTML=video.currentSrc.replace(/^.*\//,"");
+    
+    
+    //Se produce cuando se ha cargado los metadatos para el audio / vídeo especificado.
+    //Donde cargamos los track del subtitulo
+    video.addEventListener("loadedmetadata",function(){
+        track=document.createElement("track");
+        track.kind="subtitles"; //Indica el tipo de texto que hay en el track
+        //track.kind="captions"; //Indica el tipo de texto que hay en el track
+        track.label="English"; //Título del track
+        track.srclang="en";    // Obligatorio, URL del fichero con el track
+        track.src="video_subtitulos.vtt"; //Indica el codigo del lenguaje, si el track es de subtitulso es es obligatorio.
+        track.addEventListener("load", function() {
+            this.mode = "showing"; //mostramos el track
+            video.textTracks[0].mode="showing" //Para que funien en firefox
+        });
+        this.appendChild(track); //Añadimos el track creado al vidio.
+    });
+    
+    document.getElementById("si1").addEventListener("click",function(){
+            video.textTracks[0].mode = 'showing';
+    });
+    document.getElementById("ss1").addEventListener("click",function(){
+            video.textTracks[0].mode = 'hidden';
+    });
+    
+    
+    
+    var video2 = document.getElementById('video2');
+    
+    video2.addEventListener('loadedmetadata', () => {
+    const track = video2.addTextTrack("subtitles", "简体中文Subtitles", "zh_CN");
+    
+    track.mode = "showing";
+
+    const cueCn = new VTTCue(0, 12.500, '字幕会在0至2.5秒间显示');
+    track.addCue(cueCn);
+
+    const cueEn = new VTTCue(12.6, 24, 'Subtitles will display between 2.6 and 4 seconds');
+    track.addCue(cueEn);
+        
+    const track2 = video2.addTextTrack("subtitles", "Español", "es");  
+        
+    const cueEs = new VTTCue(0, 12.500, 'Esto es español');
+    track2.addCue(cueEs);  
+        
+    const cueEs = new VTTCue(13, 26.500, 'Esto es xxxxxxxxxxxol');  
+    track2.addCue(cueEs);  
+    
+    track2.mode="hidden";
+    
+    });
+    
+    
+    
+    $(document).ready(function(){
+       
+        
+        var sonido = new Audio();
+        sonido.src = "audio/frase.mp3";
+        sonido.loop = false;
+        
+        
+        sonido.volume=$("#volumen").val();
+        //var bplay = document.getElementById("play");
+        //bplay.addEventListener("click",function(){ sonido.play()});
+        
+        $("#play").click(function(){sonido.play()});
+        $("#pause").click(function(){sonido.pause()});
+        $("#stop").click(function(){sonido.load()});
+        
+        $("#volumen").change(function(evento){
+            sonido.volume=evento.target.value;
+        }); 
+      
+        
+        
+        $("#tiempo").attr("max",sonido.duration);
+        
+        sonido.ontimeupdate=function(){
+            $("#tiempo").attr("max",sonido.duration);
+            $("#tiempo").val(sonido.currentTime);
+        }
+        $("#titulo").innerHTML=sonido.currentSrc;
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

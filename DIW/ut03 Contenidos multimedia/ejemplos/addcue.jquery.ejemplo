@@ -1,0 +1,20 @@
+jQuery(function ($) {
+    //add a subtitle track to a video
+    var track = $('video').addTextTrack('subtitles', 'just a test', 'en');
+    //make it visible
+    track.mode = 'showing';
+
+    // add some cues to show the text
+    track.addCue(new VTTCue(0.5, 5, "My first Cue"));
+    track.addCue(new VTTCue(5.1, 9.5, "My <u>underlined</u> Cue"));
+    track.addCue(new VTTCue(9.6, 14.8, "My <c.small>small classname</c> Cue"));
+    track.addCue(new VTTCue(15, 36, "My <c.customstyle>custom classname</c> Cue"));
+
+    //bind a cuechange-listener
+    $(track).on('cuechange', function () {
+        if (window.console) {
+            var activeCues = $.prop(this, 'activeCues');
+            console.log(activeCues && activeCues[0] || 'exit');
+        }
+    });
+});
