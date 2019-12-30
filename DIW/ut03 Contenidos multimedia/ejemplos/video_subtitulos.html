@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Place your stylesheet here-->
-    
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     
 </head>
 
@@ -25,14 +25,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 ">
-           <h2 class="bg-primary text-center  border border-warning rounded">Videos</h2>
+           <h2 class="bg-primary text-center  border border-warning rounded">Videos y subtítulos</h2>
             <div class="row">
                 <div class="col-sm-6 text-center">
-                    <h4 class="bg-success text-center  border border-warning rounded">Subtítulos vtt</h4>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-sm btn-primary" id="play1">Play</button>
-                        <button class="btn btn-sm btn-primary" id="stop1">Stop</button>
-                        <button class="btn btn-sm btn-primary" id="pause1">Pause</button>
+                    <h4 class="bg-success text-center  border border-warning rounded">VTT</h4>
+                    <div class="btn-group d-flex ">
+                        <button class="btn btn-sm btn-primary" id="play1"><i class="fa fa-play " aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="stop1"><i class="fa fa-stop" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="pause1"><i class="fa fa-pause" aria-hidden="true"></i></button>
                         <div class="dropdown">
                           <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Subtítulos
@@ -56,18 +56,19 @@
                     </video>
                 </div>
                 <div class="col-sm-6">
-                    <h4 class="bg-success text-center  border border-warning rounded">Subtítulos cue</h4>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-sm btn-primary" id="play2">Play</button>
-                        <button class="btn btn-sm btn-primary" id="stop2">Stop</button>
-                        <button class="btn btn-sm btn-primary" id="pause2">Pause</button>
+                    <h4 class="bg-success text-center  border border-warning rounded">CUE</h4>
+                    <div class="btn-group d-flex ">
+                        <button class="btn btn-sm btn-primary" id="play2"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="stop2"><i class="fa fa-stop" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="pause2"><i class="fa fa-pause" aria-hidden="true"></i></button>
                         <div class="dropdown">
                           <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Subtítulos
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" id="ss2" href="#">Sin Subtítulo</a>
-                            <a class="dropdown-item" id="si2" href="#">Íngles</a>
+                            <a class="dropdown-item" id="sc2" href="#">Chino</a>
+                            <a class="dropdown-item" id="se2" href="#">Español</a>
                           </div>
                         </div>
                     </div>
@@ -76,7 +77,7 @@
                     <p>Tiempo:<input class="form-control-range" type="range" id="tiempo2" step=".1" min="0" max="0" value="0"></p>
                     
                     <p class="alert alert-danger" id="titulo2"></p>
-                    <video id="video2" width="240" height="130" controls>
+                    <video id="video2" width="240" height="130" >
                         <source src="video/trailer_400p.ogg" type="video/mp4">
                         <!-- Añadiremos posteriormente dinamicamente los subtitulos desde js
                         <track kind="subtitles" src="video_subtitulos.vtt" srclang="en">-->
@@ -86,17 +87,92 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h1 class="bg-primary text-center  border border-warning rounded" >Audio</h1>
-            <button class="btn btn-primary" id="play">Play</button>
-            <button class="btn btn-primary" id="stop">Stop</button>
-            <button class="btn btn-primary" id="pause">Pause</button>
-            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="0.5"></p>
-            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
-            <p id="titulo"></p>
-            
+            <h2 class="bg-primary text-center  border border-warning rounded">Videos, subtítulos y Jquery</h2>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <h4 class="bg-success text-center  border border-warning rounded">CUE</h4>
+                    <div class="btn-group d-flex ">
+                        <button class="btn btn-sm btn-primary" id="play3"><i class="fa fa-play " aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="stop3"><i class="fa fa-stop" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="pause3"><i class="fa fa-pause" aria-hidden="true"></i></button>
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Subtítulos
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <button class="dropdown-item" id="ss3" href="#">Sin Subtítulo</button>
+                            <a class="dropdown-item" id="si3" href="#">Íngles</a>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <p>Volumen:<input class="form-control-range" type="range" id="volumen3" step=".1" min="0" max="1" value="0"></p>
+                    <p>Tiempo:<input class="form-control-range" type="range" id="tiempo3" step=".1" min="0" max="0" value="0"></p>
+                    
+                    <p class="alert alert-danger" id="titulo3"></p>
+                    <video id="video3" width="240" height="130" controls>
+                        <source src="video/trailer_400p.ogg" type="video/mp4">
+                        <!-- Añadiremos posteriormente dinamicamente los subtitulos desde js
+                        <track kind="subtitles" src="video_subtitulos.vtt" srclang="en">-->
+                        Tu navegador no soporta este formamto de video
+                    </video>
+                </div>
+                <div class="col-sm-6">
+                    <h4 class="bg-success text-center  border border-warning rounded">VTT</h4>
+                    <div class="btn-group d-flex ">
+                        <button class="btn btn-sm btn-primary" id="play2"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="stop2"><i class="fa fa-stop" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-primary" id="pause2"><i class="fa fa-pause" aria-hidden="true"></i></button>
+                        <div class="dropdown">
+                          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Subtítulos
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" id="ss2" href="#">Sin Subtítulo</a>
+                            <a class="dropdown-item" id="sc2" href="#">Chino</a>
+                            <a class="dropdown-item" id="se2" href="#">Español</a>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <p>Volumen:<input class="form-control-range" type="range" id="volumen2" step=".1" min="0" max="1" value="0"></p>
+                    <p>Tiempo:<input class="form-control-range" type="range" id="tiempo2" step=".1" min="0" max="0" value="0"></p>
+                    
+                    <p class="alert alert-danger" id="titulo2"></p>
+                    <video id="video2" width="240" height="130" >
+                        <source src="video/trailer_400p.ogg" type="video/mp4">
+                        <!-- Añadiremos posteriormente dinamicamente los subtitulos desde js
+                        <track kind="subtitles" src="video_subtitulos.vtt" srclang="en">-->
+                        Tu navegador no soporta este formamto de video
+                    </video>
+                </div>
+            </div>     
         </div>
     </div>
-    
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="bg-primary text-center  border border-warning rounded" >Audio</h1>
+            <div class="btn-group d-flex">
+                <button class="btn btn-primary" id="play">Play</button>
+                <button class="btn btn-primary" id="stop">Stop</button>
+                <button class="btn btn-primary" id="pause">Pause</button>
+            </div>
+            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="0.5"></p>
+            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
+            <p id="titulo"></p>    
+        </div>
+        <div class="col-md-6">
+            <h1 class="bg-primary text-center  border border-warning rounded" >Audio</h1>
+            <div class="btn-group d-flex">
+                <button class="btn btn-primary" id="aplay">Play</button>
+                <button class="btn btn-primary" id="astop">Stop</button>
+                <button class="btn btn-primary" id="apause">Pause</button>
+            </div>
+            <p> Volumen: <input class="form-control-range" type="range" id="volumen" step="0.1" min="0" max="1" value="0.5"></p>
+            <p> Tiempo: <input class="form-control-range" type="range" id="tiempo" step=".1" min="0" max="0" value="0"></p>
+            <p id="titulo"></p>    
+        </div>   
+    </div>
 </div>
    
 
@@ -116,7 +192,9 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+<script src="js/video_subtitulos_jquery.js"></script>
 <script>
+
     // Código para mostrar subtitulos en html5 con fichero vtt.
     
     var video=document.getElementById("video1");
@@ -146,7 +224,7 @@
         track.srclang="en";    // Obligatorio, URL del fichero con el track
         track.src="video_subtitulos.vtt"; //Indica el codigo del lenguaje, si el track es de subtitulso es es obligatorio.
         track.addEventListener("load", function() {
-            this.mode = "showing"; //mostramos el track
+            //this.mode = "showing"; //mostramos el track
             video.textTracks[0].mode="showing" //Para que funien en firefox
         });
         this.appendChild(track); //Añadimos el track creado al vidio.
@@ -160,13 +238,16 @@
     });
     
     
+    // Código para subtítulos cue
     
     var video2 = document.getElementById('video2');
+    var vol2=document.getElementById("volumen2")
+    var tie2=document.getElementById("tiempo2");
     
     video2.addEventListener('loadedmetadata', () => {
-    const track = video2.addTextTrack("subtitles", "简体中文Subtitles", "zh_CN");
+    const track = video2.addTextTrack("subtitles", "1简体中文Subtdfsdffsdfsdfitles", "zh_CN");
     
-    track.mode = "showing";
+    track.mode = "hidden";
 
     const cueCn = new VTTCue(0, 12.500, '字幕会在0至2.5秒间显示');
     track.addCue(cueCn);
@@ -176,51 +257,41 @@
         
     const track2 = video2.addTextTrack("subtitles", "Español", "es");  
         
-    const cueEs = new VTTCue(0, 12.500, 'Esto es español');
+    var cueEs = new VTTCue(0, 12.500, 'Esto es español');
     track2.addCue(cueEs);  
         
-    const cueEs = new VTTCue(13, 26.500, 'Esto es xxxxxxxxxxxol');  
+    var cueEs = new VTTCue(13, 26.500, 'Esto es xxxxxxxxxxxol');  
     track2.addCue(cueEs);  
     
     track2.mode="hidden";
     
     });
     
+    document.getElementById("play2").addEventListener("click",function(){video2.play()});
+    document.getElementById("stop2").addEventListener("click",function(){video2.load()});
+    document.getElementById("pause2").addEventListener("click",function(){video2.pause()});
     
+    document.getElementById("ss2").addEventListener("click",function(){video2.textTracks[0].mode="hidden";
+                                                                       video2.textTracks[1].mode="hidden";
+                                                                      });
+    document.getElementById("sc2").addEventListener("click",function(){video2.textTracks[0].mode="showing";
+                                                                       video2.textTracks[1].mode="hidden";
+                                                                      });
+    document.getElementById("se2").addEventListener("click",function(){video2.textTracks[0].mode="hidden";
+                                                                       video2.textTracks[1].mode="showing";
+                                                                      });
     
-    $(document).ready(function(){
-       
-        
-        var sonido = new Audio();
-        sonido.src = "audio/frase.mp3";
-        sonido.loop = false;
-        
-        
-        sonido.volume=$("#volumen").val();
-        //var bplay = document.getElementById("play");
-        //bplay.addEventListener("click",function(){ sonido.play()});
-        
-        $("#play").click(function(){sonido.play()});
-        $("#pause").click(function(){sonido.pause()});
-        $("#stop").click(function(){sonido.load()});
-        
-        $("#volumen").change(function(evento){
-            sonido.volume=evento.target.value;
-        }); 
-      
-        
-        
-        $("#tiempo").attr("max",sonido.duration);
-        
-        sonido.ontimeupdate=function(){
-            $("#tiempo").attr("max",sonido.duration);
-            $("#tiempo").val(sonido.currentTime);
-        }
-        $("#titulo").innerHTML=sonido.currentSrc;
-    });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    video2.volume=vol2.value;
+   
+    vol2.addEventListener("change",function(evento){video2.volume=evento.target.value;});
+    video2.addEventListener("timeupdate",function(){
+    tie2.value=video2.currentTime;
+    tie2.setAttribute("max",video2.duration);});
+    document.getElementById("titulo2").innerHTML=video2.currentSrc.replace(/^.*\//,"");
+    
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
