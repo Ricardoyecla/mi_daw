@@ -282,11 +282,13 @@
                                                                       });
     
     video2.volume=vol2.value;
-   
     vol2.addEventListener("change",function(evento){video2.volume=evento.target.value;});
+    
     video2.addEventListener("timeupdate",function(){
-    tie2.value=video2.currentTime;
-    tie2.setAttribute("max",video2.duration);});
+        tie2.value=video2.currentTime;
+        tie2.setAttribute("max",video2.duration);
+    });
+    
     document.getElementById("titulo2").innerHTML=video2.currentSrc.replace(/^.*\//,"");
     
 </script>
