@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML - Diseño líquido 1</title>
+	<link rel="stylesheet" type="text/css" href="./css/estilo1.css" />
+
+		<!-- otra forma de aplicar el estilo
+	<style type="text/css" title="estiloActual" media="screen">
+		@import "estilo2.css";
+	</style> -->
+
+</head>
+<body>
+	<div id="cabecera">
+		Diseño líquido con dos columnas para mostrar como se arrastran elementos.
+	</div>
+	<div id="lateral">
+		<ul id="lista">
+			
+		</ul>
+
+	</div>
+	<div id="central">
+        <h2>HTML</h2>
+        <div class="contenedores">
+            <div class="arrastrable" id="ar1" draggable="true"></div>
+            <div class="arrastrable" id="ar2" draggable="true"></div>
+            <div class="arrastrable" id="ar3" draggable="true"></div>
+        </div>
+        <div class="contenedores">
+
+        </div>
+        <div class="contenedores">
+
+        </div>
+    </div>
+	<div id="pie">
+		&copy; Ejemplo Arrastar y Soltar
+	</div>
+	<script>
+        //Contador con el número de eventos realizados
+        var numeroEvento=0;
+        
+        //Cuadros conentra todos los div arrastrables
+        var cuadros = document.querySelectorAll('.arrastrable');
+        var contenedores=document.querySelectorAll('.contenedores');
+        
+        //Asignamos al evento empezar a arrastrar que se vuelva opaco a la mita
+        //Resitramos el evento en el lateral
+        for(let cuadro of cuadros) {
+            cuadro.addEventListener('dragstart',empezaR, false);
+            cuadro.addEventListener('dragend',fiN,false);
+        }
+        for(let contenedor of contenedores){
+            contenedor.addEventListener('dragenter',entraR, false);
+            contenedor.addEventListener('dragleave',saliR, false);
+            contenedor.addEventListener('dragover',sobrE, false);
+            contenedor.addEventListener('drop',soltaR, false);
+        }
+        
+        function empezaR(e){
+            // Volvemos el div que arrastro medio transparente
+            e.target.style["opacity"]=0.5;
+            //Añado a la lista lateral el evento realizado
+            añadir(e.type);
+            e.dataTransfer.effectAllowed="move";
+            e.dataTransfer.setData("Data",e.target.getAttribute('id'));
+            e.dataTransfer.setData(e.target,0,0);
+            return true;
+            
+        }
+        function entraR(e){
+            e.target.classList.add("over");
+            añadir(e.type);
+            return true;
+        }
+        function saliR(e){
+            e.target.classList.remove("over");
+            añadir(e.type);
+            return true;
+        }
+        function sobrE(e){
+            añadir(e.type);
+
+            //var elArrastrado = e.dataTransfer.getData("Data");
+            //var idContenedor = e.target.getAttribute('id');
+            if (e.preventDefault) {
+                e.preventDefault(); // Necessary. Allows us to drop.
+            }
+
+            return false;
+        }
+        
+        
+        function soltaR(e){
+            añadir(e.type);
+            var elArrastrado = e.dataTransfer.getData("Data");
+            e.target.appendChild(document.getElementById(elArrastrado));
+            e.target.classList.remove("over");
+            e.stopPropagation();
+            return false;
+        }
+        function fiN(e){
+            añadir(e.type);
+            e.dataTransfer.clearData("Data");
+            return true;
+            
+        }
+        
+        function añadir(texto){
+            let lista=document.getElementById("lista");
+            let nuevoLi=document.createElement("li");
+            nuevoLi.textContent=`${numeroEvento} ${texto}`;
+            lista.appendChild(nuevoLi);
+            numeroEvento++;
+        }
+    </script>
+</body>
+</html>

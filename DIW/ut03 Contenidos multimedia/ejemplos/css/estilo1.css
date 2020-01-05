@@ -1,0 +1,82 @@
+/**
+* estilo1.css
+* Hoja de estilos para diseño liquido
+*/
+
+/* Color Theme Swatches in Hex */
+.My-Color-Theme-1-hex { color: #FFA196; }
+.My-Color-Theme-2-hex { color: #DABEE8; }
+.My-Color-Theme-3-hex { color: #B0CCFF; }
+.My-Color-Theme-4-hex { color: #95E8C8; }
+.My-Color-Theme-5-hex { color: #D9FFA3; }
+
+/* Color Theme Swatches in RGBA */
+.My-Color-Theme-1-rgba { color: rgba(255, 160, 150, 1); }
+.My-Color-Theme-2-rgba { color: rgba(218, 190, 232, 1); }
+.My-Color-Theme-3-rgba { color: rgba(175, 204, 255, 1); }
+.My-Color-Theme-4-rgba { color: rgba(148, 232, 199, 1); }
+.My-Color-Theme-5-rgba { color: rgba(216, 255, 163, 1); }
+
+/* Color Theme Swatches in HSLA */
+.My-Color-Theme-1-hsla { color: hsla(5, 100, 79, 1); }
+.My-Color-Theme-2-hsla { color: hsla(279, 47, 82, 1); }
+.My-Color-Theme-3-hsla { color: hsla(218, 100, 84, 1); }
+.My-Color-Theme-4-hsla { color: hsla(156, 64, 74, 1); }
+.My-Color-Theme-5-hsla { color: hsla(85, 100, 82, 1); }
+
+body {
+	font-family: Arial, Verdana;
+	font-size: 12pt;
+    
+	}
+	
+#cabecera {
+	background: rgba(255, 160, 150, 1);
+	padding: 10px;
+    margin-bottom: 5px;
+	}
+	
+#central {
+	width: 77%;
+    float: left;
+    background: rgba(175, 204, 255, 1); 
+    padding: 5px;
+}
+
+#lateral {
+	float: right;
+	width: 20%;
+	background: rgba(218, 190, 232, 1);
+	}
+/**
+* El pie ocupará toda la anchura, pero se podría poner
+* con la misma anchura que el div central#
+*/	
+#pie {
+	clear: both;
+    margin-top: 5px;
+	text-align: center;
+	background-color: rgba(216, 255, 163, 1);
+	}
+.contenedores {
+   
+    float: left;
+    height: 300px;
+    width: 300px;
+    margin: 15px;
+    background: rgba(148, 232, 199, 1);
+    
+}
+.arrastrable {
+    
+    float: left;
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+    border: 1px solid black;
+    background-color: rgba(216, 255, 163, 1);
+}
+
+.contenedores.over {
+     border: 2px dashed #000;
+}
