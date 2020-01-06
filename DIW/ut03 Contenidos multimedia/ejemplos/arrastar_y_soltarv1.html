@@ -22,17 +22,14 @@
 	</div>
 	<div id="central">
         <h2>HTML</h2>
-        <div class="contenedores">
-            <div class="arrastrable" id="ar1" draggable="true"></div>
-            <div class="arrastrable" id="ar2" draggable="true"></div>
-            <div class="arrastrable" id="ar3" draggable="true"></div>
+        <div id="con2" class="contenedores">
+            <h3>Origen</h3>
+            <div class="arrastrable" id="ar1" draggable="true"><p>Caja 1</p></div>
+            <div class="arrastrable" id="ar2" draggable="true"><p>Caja 2</p></div>
+            <div class="arrastrable" id="ar3" draggable="true"><p>Caja 3</p></div>
         </div>
-        <div class="contenedores">
-
-        </div>
-        <div class="contenedores">
-
-        </div>
+        <div id="con1" class="contenedores"><h3>Contenedor Impar</h3></div>
+        <div id="con0" class="contenedores"><h3>Contenedor Par</h3></div>
     </div>
 	<div id="pie">
 		&copy; Ejemplo Arrastar y Soltar
@@ -65,45 +62,45 @@
             añadir(e.type);
             e.dataTransfer.effectAllowed="move";
             e.dataTransfer.setData("Data",e.target.getAttribute('id'));
-            e.dataTransfer.setData(e.target,0,0);
-            return true;
-            
+            e.dataTransfer.setData(e.target,0,0);   
         }
+        
         function entraR(e){
             e.target.classList.add("over");
+            
             añadir(e.type);
-            return true;
+            
         }
+        // Elimina los puntos del contendor al salir el elemento que se esta
+        // arrastrando.
         function saliR(e){
             e.target.classList.remove("over");
             añadir(e.type);
-            return true;
         }
+        
         function sobrE(e){
             añadir(e.type);
-
-            //var elArrastrado = e.dataTransfer.getData("Data");
-            //var idContenedor = e.target.getAttribute('id');
-            if (e.preventDefault) {
-                e.preventDefault(); // Necessary. Allows us to drop.
-            }
-
-            return false;
+            e.preventDefault(); // Se necestia para que nos permita soltar drop.
         }
         
         
         function soltaR(e){
             añadir(e.type);
+            
             var elArrastrado = e.dataTransfer.getData("Data");
-            e.target.appendChild(document.getElementById(elArrastrado));
+            
+            if (e.target.getAttribute('id').charAt(3)==(elArrastrado.charAt(2)%2)){
+                    e.target.appendChild(document.getElementById(elArrastrado));
+            }
             e.target.classList.remove("over");
+            
             e.stopPropagation();
-            return false;
         }
+        
         function fiN(e){
             añadir(e.type);
             e.dataTransfer.clearData("Data");
-            return true;
+         
             
         }
         

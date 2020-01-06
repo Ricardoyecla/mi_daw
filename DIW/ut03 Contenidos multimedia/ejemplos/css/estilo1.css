@@ -65,10 +65,10 @@ body {
     width: 300px;
     margin: 15px;
     background: rgba(148, 232, 199, 1);
-    
+    padding: 2px;
 }
 .arrastrable {
-    
+    padding: 2px;
     float: left;
     height: 100px;
     width: 100px;
