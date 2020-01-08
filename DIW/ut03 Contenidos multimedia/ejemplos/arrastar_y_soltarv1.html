@@ -62,7 +62,6 @@
             añadir(e.type);
             e.dataTransfer.effectAllowed="move";
             e.dataTransfer.setData("Data",e.target.getAttribute('id'));
-            e.dataTransfer.setData(e.target,0,0);   
         }
         
         function entraR(e){
@@ -99,9 +98,7 @@
         
         function fiN(e){
             añadir(e.type);
-            e.dataTransfer.clearData("Data");
-         
-            
+            e.dataTransfer.clearData("Data");   
         }
         
         function añadir(texto){
