@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    try {
+        //'use strict';
+        pinta("adios");
+
+        let miError=new Error("se esperaba un texto");
+
+        //throw   miError;
+
+        function pinta(texto){
+                x='a';
+                y=2;
+                document.writ(y);
+                y=y/x;
+               document.write(y);
+        }
+
+    } catch(error ){
+           alert(error.lineNumber);
+    }
+
+
+    </script>
+</body>
+</html>
