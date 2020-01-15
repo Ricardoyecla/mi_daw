@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            console.log("Etapa 1 completada");
+            setTimeout(function(){
+                console.log("Etapa 2 completada");
+                setTimeout(function(){
+                  console.log("Etapa 3 completada");
+                    setTimeout(function(){
+                    console.log("Etapa 4 completada");
+                    // Podríamos continuar hasta el infinito...
+                    }, 4000);
+                }, 3000);
+              }, 2000);
+        }, 1000);
+        for(i=0;i<100;i++){
+            console.log(i);
+        }
+    </script>
+</body>
+</html>
