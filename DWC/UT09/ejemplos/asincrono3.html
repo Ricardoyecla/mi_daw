@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var promesa = new Promise(function(resolve,reject){
+            const Bandera=5;
+
+            if(Bandera==5)
+                resolve("Todo Bien");
+            else
+                reject(Error("Algo va mal :("));
+        });
+
+        promesa.then(function(response){
+            console.log(response)
+        },function(error){
+            console.log(error);
+        })
+    </script>
+</body>
+</html>

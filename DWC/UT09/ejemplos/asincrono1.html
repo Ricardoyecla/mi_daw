@@ -6,16 +6,25 @@
 </head>
 <body>
     <script>
-
-        try{
-            var array = new Array(10000000000);
-            var edad=19;
-            var p={nombre:"pepe",nombre:"paco"}
-        }
-        catch (e) {
-           alert(e.message)
+        function asyncSqrt(value, callback) {
+            console.log('START execution with value =', value);
+            setTimeout(function() {
+                callback(value, value * value);
+                }, 0 | Math.random() * 100);
         }
 
+        /*asyncSqrt(2, function(value, result) {
+            console.log('END execution with value =', value, 'and result =', result);
+        });
+        console.log('COMPLETED ?');*/
+
+       /*
+        for (var n = 0; n < 10; n++) {
+            asyncSqrt(n, function(value, result) {
+                console.log('END execution with value =', value, 'and result =', result);
+            });
+        }
+        console.log('COMPLETED ?'); */
     </script>
 </body>
 </html>
