@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="css/arrastrar.css" type="text/css">
+    <title>Starter Template · Bootstrap</title>
+    
+
+</head>
+
+<body>
+   <div id="cabecera">
+       Ejemplo de arrastar;
+   </div>
+   <div id="central">
+       <h3>central</h3>
+       <div id="origen" class="contenedor">
+            <div id="c1" class="caja" draggable="true">1</div>
+            <div id="c2"class="caja" draggable="true">2</div>
+            <div id="c3"class="caja" draggable="true">3</div>
+            <div id="c4"class="caja" draggable="true">4</div>
+       </div>
+       <div id="1" class="contenedor"><h4>Impar</h4></div>
+       <div id="0" class="contenedor"><h4>Par</h4></div>
+   </div>
+   <div id="lateral">
+       <ul id="lista"></ul>
+   </div>
+   <div id="pie">
+       pie
+   </div>
+   <script>
+       
+    
+       var cajas =document.querySelectorAll(".caja");
+       var contenedores =document.querySelectorAll(".contenedor");
+    
+       for (let caja of cajas){
+           caja.addEventListener('dragstart',starT,false);
+           caja.addEventListener('dragend',fiN,false);
+       }
+       
+       for (let contenedor of contenedores){
+           contenedor.addEventListener('dragenter',enteR,false);
+           contenedor.addEventListener('dragleave',leavE,false);
+           contenedor.addEventListener('dragover',oveR,false);
+           contenedor.addEventListener('drop',droP,false);
+       }
+       
+       
+       
+       function droP(e){
+            añadir(e.type); 
+           
+           let mi_caja=e.dataTransfer.getData("Data");
+           if (e.target.getAttribute('id')==mi_caja.charAt(1)%2){
+           e.target.appendChild(document.getElementById(mi_caja));
+           }
+           //e.stopPropagation();
+       }
+       
+       function oveR(e){
+           añadir(e.type);
+           e.preventDefault();
+       }
+       
+       function leavE(e){
+          añadir(e.type);
+           e.target.classList.remove("sobre"); 
+       }
+       function enteR(e){
+           añadir(e.type);
+           e.target.classList.add("sobre");
+       }
+       
+       function starT(e){
+           e.target.style["opacity"]=0.5;
+           añadir(e.type)
+           
+           e.dataTransfer.effectAllowed="move";
+           e.dataTransfer.setData("Data",e.target.getAttribute('id'));
+          
+       }
+       
+       function fiN(e){
+           añadir(e.type)
+           e.target.style["opacity"]=1;
+       }
+       function añadir(texto){
+           let lista=document.getElementById('lista');
+           let nuevoLi=document.createElement("li");
+           nuevoLi.innerHTML=texto;
+           lista.appendChild(nuevoLi);
+       }
+    </script>
+    
+</body>
+</html>

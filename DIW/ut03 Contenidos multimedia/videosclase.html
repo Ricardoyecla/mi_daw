@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Starter Template · Bootstrap</title>
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Place your stylesheet here-->
+    <link rel="stylesheet" href="ejemplos/css/font-awesome.css">
+    
+</head>
+
+<body>
+
+<div class="container">
+<!-- Para videos -->
+<div class="row">
+  <!-- Para video sin jquery-->
+    <div class="col-md-6">
+        <h2 class="bg-primary text-center border-warning rounded">
+            Vídos y subtitulos
+        </h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="bg-success text-center border border-warning rounded">video vtt</h4>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-warning fa fa-play"></button>
+                    <button class="btn btn-sm btn-warning fa fa-pause"></button>
+                    <button class="btn btn-sm btn-warning fa fa-stop"></button>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">subtitulos</button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item">SinSubtitulos</button>
+                            <button class="dropdown-item">Ingles</button>
+                        </div>
+                    </div>
+                </div>
+                <p>Volumén<input type="range" step=".1" min="0" max="1" value="1"></p>
+                <p>Tiempo<input type="range" step=".1" min="0" max="1" value="0"></p>
+                <p class="alert alert-danger">titulo</p>
+                <video width="240" height="320" id="video1" controls>
+                    <source src="ejemplos/video/trailer_400p.ogg">
+                    <track kind="subtitles" label="Mandrín subtitles" src="ejemplos/video_subtitulos.vtt">
+                </video>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="bg-success text-center border border-warning rounded">video cue</h4>
+            </div>
+        </div>
+   </div>
+    <!-- Para video sin jquery-->
+   <div class="col-md-6">
+        <h2 class="bg-primary text-center border-warning rounded">
+            Vídos y subtitulos jquery
+       </h2>
+       <div class="row">
+            <div class="col-sm-6">
+                <h4 class="bg-success text-center border border-warning rounded">video vtt</h4>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="bg-success text-center border border-warning rounded">video cue</h4>
+            </div>
+        </div>
+   </div>
+</div>
+<!-- Para audio -->
+<div class="row"></div>
+
+
+
+</div>
+        
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="js/video_subtitulos_jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
