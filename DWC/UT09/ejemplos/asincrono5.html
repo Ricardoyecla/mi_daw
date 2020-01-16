@@ -6,23 +6,25 @@
 </head>
 <body>
     <script>
+        let promesa1=Promise.resolve("La primera");
 
+        let promesa2=new Promise(function(resolver){
+            setTimeout(function(){
+                resolver("promesa2 Resulevo en 9s")},9000);
+        });
 
+        let promesa3=new Promise(function(resolver){
+            setTimeout(function(){
+                resolver("promesa3 Resulevo en 6s")},8000);
+        });
 
         async function esperarTiempos(){
-            let mensaje1=await  Promise.resolve("La primera");
+
+            let mensaje1=await promesa1;
             console.log(mensaje1);
-
-            let mensaje2=await new Promise(function(resolver){
-                setTimeout(function(){
-                    resolver("Resulevo en 3s")},8000);
-            });
+            let mensaje2=await promesa2;
             console.log(mensaje2);
-
-            let mensaje3=await new Promise(function(resolver){
-                setTimeout(function(){
-                    resolver("Resulevo en 6s")},9000);
-            });
+            let mensaje3=await promesa3;
             console.log(mensaje3);
         }
         esperarTiempos();
