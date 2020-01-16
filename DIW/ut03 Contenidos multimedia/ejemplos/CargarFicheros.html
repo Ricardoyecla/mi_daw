@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #zona_DnD{
+            width: 200px;
+            height: 200px;
+            border: 2px dashed black;
+            text-align: center;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="fichero" name="files[]" multiple/>
+    <div><ul id="lista"></ul></div>
+    <div id="contenido"></div>
+    
+    <h3>Arrastra aqúi los ficheros...</h3>
+    <div id="zona_DnD"></div>
+    <div><ul id="lista2"></ul></div>
+    <script>
+        if(window.File && window.FileReader && window.FileList && window.Blob){
+            console.log("tiene sopirte para lectura ficheros");
+        } else {
+            alert("no hay sopirte");
+        }
+        
+        
+        function leeF(e){
+            var origen = e.target;
+            
+            var reader= new FileReader();
+            reader.onload=function(){
+                var texto=reader.result;
+                document.getElementById('contenido').innerHTML=texto;
+            }    
+            
+            reader.readAsText(origen.files[0]);     
+        }
+        
+        function maSeFi(e){
+            var files=e.target.files; // Objeto lista de ficheros
+            
+            // Array para montar la salida en la pantalla
+            var salida=[];
+            for (var i=0,f;f=files[i];i++){
+                salida.push('<li><strong>'+f.name+'</strong>'+f.size+' bytes '+f.type+'</li>');
+            }
+            document.getElementById('lista').innerHTML=salida.join("");
+        }
+        
+        document.getElementById("fichero").addEventListener('change',maSeFi,false);
+        document.getElementById("fichero").addEventListener("change",leeF,false);
+        
+        // DnD ficheros 
+        
+        function mDO(e){
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect="copy";
+            return true;
+        }
+        
+        function mD(e){
+            e.stopPropagation();
+            e.preventDefault(); 
+            
+            var files =e.dataTransfer.files;
+            var salida=[];
+            for (var i=0,f;f=files[i];i++){
+               salida.push('<li><strong>'+f.name+'</strong>'+f.size+' bytes '+f.type+'</li>');
+            }
+            document.getElementById('lista2').innerHTML=salida.join("");  
+        }
+        
+        document.getElementById('zona_DnD').addEventListener('dragover',mDO,false);
+        document.getElementById("zona_DnD").addEventListener('drop',mD,false);
+        
+        
+        
+    </script>
+</body>
+</html>
