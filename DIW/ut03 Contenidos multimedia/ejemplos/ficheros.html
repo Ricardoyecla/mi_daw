@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #drop_zone{
+            border: 1px dotted black;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+      <input type="file" id="files" name="files[]" multiple />
+      <output id="list"></output>
+      
+      <div id="drop_zone">Arrastra Ficheros</div>
+      <output id="list2"></output>
+      
+      <input type="file" id="files3" name="files3[]" multiple />
+      <output id="salida"></output>
+      
+   <script>
+        if(window.File && window.FileReader && window.FileList && window.Blob){
+            console.log("soportado");
+        }else {
+            alert("no soporta api ");
+        }
+       
+        function manejadorSelectorFicheros(evt) {
+            var files = evt.target.files; // Objeto lista de ficheros.
+            
+            // files es un FileList de objetos ficheros. List some properties.
+            // escape se usa para devolver una nueva cadena en la que ciertos caracteres han sido sustituidos.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                          f.size, ' bytes, última modificación: ',
+                          f.lastModifiedDate.toLocaleDateString(), '</li>');
+            }
+            //Convertimos el array output en una cadena
+            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+       
+        document.getElementById('files').addEventListener('change', manejadorSelectorFicheros, false);
+       
+       
+       //=============================DnD
+       
+        function DnDFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files; // FileList object.
+
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            for (var i = 0, f; f = files[i]; i++) {
+              output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                          f.size, ' bytes, última modificación: ',
+                          f.lastModifiedDate.toLocaleDateString(), '</li>');
+            }
+            document.getElementById('list2').innerHTML = '<ul>' + output.join('') + '</ul>';
+        }
+
+        function manejoDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        }
+
+      // Configurar los manejadores DnD
+      var dropZone = document.getElementById('drop_zone');
+      dropZone.addEventListener('dragover', manejoDragOver, false);
+      dropZone.addEventListener('drop', DnDFileSelect, false);
+       
+       //=================Leer Fichero
+       
+       function leerFichero(evt) {
+           
+            var input = evt.target;
+
+            var reader = new FileReader();
+            reader.onload = function(){
+                var text = reader.result;
+                console.log(reader.result.substring(0, 200));
+            };
+            reader.readAsText(input.files[0]);
+           //document.getElementById("salida").innerText=reader.result; /*<p id="DisplayText>*/
+        }
+            
+        
+
+        document.getElementById('files3').addEventListener('change', leerFichero, false);
+       
+       
+    </script>
+</body>
+</html>
