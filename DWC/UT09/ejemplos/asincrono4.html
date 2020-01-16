@@ -7,17 +7,18 @@
 <body>
     <script>
         var promesa = new Promise(function(resolve,reject){
+
             setTimeout(function(){
-                resolve("Todo Bien!!");
+                resolve("todo ha ido bien");
             },3000);
             console.log("Ya he terminado");
         });
 
         promesa.then(function(response){
             console.log(response)
-        },function(error){
+        }).catch(function(error){
             console.log(error);
-        })
+        });
     </script>
 </body>
 </html>

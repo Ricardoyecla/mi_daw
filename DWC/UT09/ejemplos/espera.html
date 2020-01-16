@@ -5,27 +5,20 @@
     <title>Document</title>
 </head>
 <body>
+   <h1>carrera</h1>
     <script>
+       "use strict";
+
         function asyncSqrt(value, callback) {
             console.log('START execution with value =', value);
-            //setTimeout(function() {
+            setTimeout(function() {
                 callback(value, value * value);
-             //   }, 10);
+                }, 0 | Math.random() * 100);
         }
-
-        /*asyncSqrt(2, function(value, result) {
-            console.log('END execution with value =', value, 'and result =', result);
-        });
-        console.log('COMPLETED ?');*/
-
 
         for (var n = 0; n < 10; n++) {
             asyncSqrt(n, function(value, result) {
-                for (i=0;i<10;i++){
-                    var x=i^i
-                }
                 console.log('END execution with value =', value, 'and result =', result);
-
             });
         }
         console.log('COMPLETED ?');

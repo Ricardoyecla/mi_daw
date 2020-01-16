@@ -1,0 +1,42 @@
+#cabecera{
+    background: blue;
+    margin-bottom: 1em;
+}
+
+#central{
+    background: grey;
+    float: left;
+    width: 60%;
+}
+
+#lateral{
+    background: lime;
+    float: right;
+    width: 35%;
+}
+
+#pie {
+    background: pink;
+    clear: both;
+}
+
+.contenedor{
+    background: lightgray;
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    float: left;
+    margin: 1em;
+}
+.caja{
+    background: orange;
+    width: 50px;
+    height: 50px;
+    border: 1px solid purple;
+    float: left;
+    margin: 1em;
+}
+.contenedor.sobre{
+    background:  yellow;
+    
+}
