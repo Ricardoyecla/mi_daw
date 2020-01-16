@@ -7,7 +7,7 @@
 <body>
     <script>
         var promesa = new Promise(function(resolve,reject){
-            const Bandera=3;
+            const Bandera=5;
 
             if(Bandera==5)
                 resolve("Todo Bien");
@@ -15,9 +15,9 @@
                 reject(Error("Algo va mal :("));
         });
 
-        promesa.then((respuesta)=>{
+        promesa.then(function(respuesta){
             console.log(respuesta);
-        }).catch((error)=>{
+        }).catch(function(error){
             console.log(error.message);
         });
     </script>
