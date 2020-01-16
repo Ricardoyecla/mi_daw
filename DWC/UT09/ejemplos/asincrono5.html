@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+        async function esperarTiempos(){
+            let mensaje1=await  Promise.resolve("La primera");
+            console.log(mensaje1);
+
+            let mensaje2=await new Promise(function(resolver){
+                setTimeout(function(){
+                    resolver("Resulevo en 3s")},8000);
+            });
+            console.log(mensaje2);
+
+            let mensaje3=await new Promise(function(resolver){
+                setTimeout(function(){
+                    resolver("Resulevo en 6s")},9000);
+            });
+            console.log(mensaje3);
+        }
+        esperarTiempos();
+
+
+    </script>
+</body>
+</html>
