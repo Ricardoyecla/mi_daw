@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <input id="boton" type='file' accept="image/*">
+    <script>
+        
+    //Alamacenamos en un array los bytes de la imagen
+    var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+            var arrayBuffer = reader.result;
+            console.log(arrayBuffer.byteLength);
+        };
+        reader.readAsArrayBuffer(input.files[0]);
+    };
+        
+    document.getElementById('boton').addEventListener("change",openFile,false);     
+</script>  
+</body>
+</html>
