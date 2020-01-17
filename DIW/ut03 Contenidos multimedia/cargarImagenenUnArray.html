@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <input id="boton" type="file" accept="image/*"  >
+   <p id="tamaño">0</p>
+    <script>
+        
+        function GuardaEnArrayImg(e){
+            var fichero=e.target.files[0];
+            
+            var lector=new FileReader();
+            
+            lector.onload=function(){
+                var arrayBuffer=lector.result;
+                document.getElementById('tamaño').innerHTML=arrayBuffer.byteLength;
+                console.log(arrayBuffer.byteLength);
+            }
+            lector.readAsArrayBuffer(fichero);
+            
+        }
+        
+        document.getElementById('boton').addEventListener('change',GuardaEnArrayImg,false);
+    </script>
+</body>
+</html>
