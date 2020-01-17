@@ -14,8 +14,10 @@
     </style>
 </head>
 <body>
-      <input type="file" id="files" name="files[]" multiple />
+     <h2>Solo imágenes</h2>
+      <input type="file"  accept='image/*' id="files" name="files[]" multiple />
       <output id="list"></output>
+      <img id="imagen" src="" alt="">
       
       <div id="drop_zone">Arrastra Ficheros</div>
       <output id="list2"></output>
@@ -43,9 +45,29 @@
             }
             //Convertimos el array output en una cadena
             document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+            
+            // Cargar una imagen no funciona para varias
+            
+           // var imagenes = evt.target.files;
+
+            var reader = new FileReader();
+            reader.onload = function(){
+            
+                var dataURL = reader.result;
+                var Eimagen = document.getElementById('imagen');
+                Eimagen.src = dataURL;
+            };
+            reader.readAsDataURL(files[0]);
+            
         }
        
+       
+       
+       
+       
         document.getElementById('files').addEventListener('change', manejadorSelectorFicheros, false);
+       
+       
        
        
        //=============================DnD
