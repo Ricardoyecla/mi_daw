@@ -47,8 +47,6 @@
             document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
             
             // Cargar una imagen no funciona para varias
-            
-           // var imagenes = evt.target.files;
 
             var reader = new FileReader();
             reader.onload = function(){
@@ -58,8 +56,7 @@
                 Eimagen.src = dataURL;
                 alert(dataURL);
             };
-            reader.readAsDataURL(files[0]);
-            
+            reader.readAsDataURL(files[0]); 
         }
        
        
