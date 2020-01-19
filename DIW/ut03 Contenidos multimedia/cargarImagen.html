@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <input id="boton" type="file" accept="image/*" multiple >
+   <img id="imagen" src="" alt="">
+    <script>
+        
+        function mostraImg(e){
+            var files=e.target.files;    
+            
+            var reader=new FileReader();
+            
+            reader.onload=function(){
+                var rutaFichero=reader.result;
+                document.getElementById('imagen').src=rutaFichero; 
+            }
+            reader.readAsDataURL(files[0]); 
+        }
+        
+        document.getElementById('boton').addEventListener('change',mostraImg,false);
+    </script>
+</body>
+</html>
