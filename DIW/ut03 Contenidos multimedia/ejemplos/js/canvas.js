@@ -53,6 +53,46 @@ ctx.stroke();
 ctx.fillStyle="rgba(255,0,0,0.6)";
 ctx.fill();
 
+//=======Curvas =============
+
+
+ctx.beginPath();
+
+ctx.moveTo(100,40);
+
+ctx.bezierCurveTo(0,300,400,300,500,200);
+ctx.bezierCurveTo(500,100,900,100,800,300);
+
+ctx.lineWidth=3;
+ctx.strokeStyle="yellow";
+
+ctx.stroke();
+
+ctx.fillStyle="rgba(123,245,144,0.6)";
+ctx.fill();
+
+//========== Degradado lineal ======
+
+var grd=ctx.createLinearGradient(700,0,600,100);
+ 
+grd.addColorStop(0, "red");
+grd.addColorStop(0.5,"blue");
+
+grd.addColorStop(1, "yellow");
+
+ctx.fillStyle=grd;
+ctx.fillRect(600,0,100,100);
+
+var grd2 = ctx.createRadialGradient(100, 300, 10, 80, 300, 110);
+grd2.addColorStop(1, "black");
+grd2.addColorStop(0, "white");
+
+ctx.beginPath();
+ctx.arc(100,300,100,0,2*Math.PI);
+ctx.fillStyle=grd2;
+
+ctx.fill();
+
 
 
 
