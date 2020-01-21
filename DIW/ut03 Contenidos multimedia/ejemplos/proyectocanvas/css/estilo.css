@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+/* Eliminamos los scrolls*/
+body{
+    overflow: hidden;
+}
+/* las medias vh son un % del tamaño del viewport*/
+
+#contenedor {
+    position: relative;
+    margin: 5vh auto;
+    width: 1000px;
+    height: 500px;
+    background: lightblue;
+}
+#vertical{
+    display: none;
+}
+
+#contenedor input{
+    display: block;
+    position: relative;
+    /* margen top y botton 5px y left y right 0*/
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/*media query que en el caso de que la horientación cambie a horizontal
+oculta el contenedor y muestra una imagen para que giremos la pantalla*/
+
+@media all and (orientation:portrait){
+    #contenedor{
+        display: none;
+    }
+    
+    #vertical{
+        display: block;
+        position: fixed;
+        width: 100%;
+        height:100vh;
+        z-index: 1;
+        background: url(../img/gira.png);
+        background-size: cover;
+        background-position: center;
+    }
+}
+#lienzo{
+    background-image: url(../img/grid.jpeg)
+}
