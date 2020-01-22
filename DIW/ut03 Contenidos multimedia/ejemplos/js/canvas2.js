@@ -39,6 +39,27 @@ function pintaNieve(x,y,altura,base){
     ctx.fill();
 }
 
+function arbol(){
+    ctx.fillStyle='rgba(100,0,20,1)';
+    ctx.fillRect(100,200,20,150);
+    
+    ctx.beginPath();
+    ctx.fillStyle='green';
+    ctx.arc(140,180,40,0,2*Math.PI);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.fillStyle='yellow';
+    ctx.arc(140,190,30,0,2*Math.PI);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.fillStyle='gray';
+    ctx.arc(110,200,50,0,2*Math.PI);
+    ctx.fill();
+}
+
+
 pintarMar();
 pintaCielo();
 montaña(0,400,300,400,'BlueViolet');
@@ -46,6 +67,23 @@ montaña(400,400,300,400,'BlueViolet');
 montaña(200,400,300,400,'Blue');
 montaña(600,400,300,400,'Blue');
 pintaNieve(0,400,300,400);
+montaña(100,400,100,600,'brown');
+arbol();
+// arbol();abeto con triangulos
+
+ctx.beginPath();
+ctx.fillStyle="green";
+ctx.arc(0,500,250,0,2*Math.PI);
+ctx.fill();
+
+ctx.beginPath();
+ctx.fillStyle="green";
+ctx.arc(900,600,250,0,2*Math.PI);
+ctx.fill();
+
+
+
+
 
 
 
