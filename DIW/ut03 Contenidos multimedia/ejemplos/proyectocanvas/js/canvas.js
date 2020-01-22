@@ -115,7 +115,28 @@ ctx.fillStyle="rgba(123,245,144,0.4)";
 ctx.fill();
 
 
+//==============Degradados====================
 
+var grd=ctx.createLinearGradient(0,300,1,400);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"blue");
+
+
+ctx.fillStyle=grd;
+
+ctx.fillRect(0,300,100,100);
+
+var grd2=ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+
+ctx.beginPath();
+ctx.arc(900,400,100,0,2*Math.PI);
+
+ctx.fillStyle=grd2;
+
+
+
+ctx.fill();
+ 
 
 
 
