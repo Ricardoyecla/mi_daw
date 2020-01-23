@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+    <audio src=""></audio>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    function dibuja(x,y){
+        ctx.fillStyle="green";
+        ctx.beginPath();
+        ctx.arc(x,y,10,0,Math.PI*2,true);
+        ctx.fill();
+    }
+   
+    function BorraCanvas(){
+        canvas.width=canvas.width;
+    }
+    var ballX=60;
+    var ballY=60;
+    var direccionX=2;
+    var direcciionY=2;
+    
+    dibuja(ballX,ballY);
+    
+    setInterval(function(){
+        if(ballX>300 || ballX<0) {
+            direccionX=direccionX*-1;  
+        }
+        if(ballY< 0 || ballY>200) {
+            direcciionY*=-1;  
+        }
+        ballX+=direccionX;
+        ballY+=direcciionY;
+        BorraCanvas();
+        dibuja(ballX,ballY);
+        
+    },35);
+
+</script>
+</html>

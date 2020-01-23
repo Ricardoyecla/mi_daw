@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    ctx.save();
+    
+    var imagen= new Image();
+    imagen.src="img/tri.jpg";
+    
+    imagen.onload=function(){
+        ctx.drawImage(imagen,20,20);
+        
+        ctx.drawImage(imagen,500,120,100,100);
+        
+        ctx.drawImage(imagen,0,0,100,100,20,300,100,100);
+        //cuatro primero porción de imagen
+        //5 y 6 posicion en el canvas
+        //dos últimos tamaño
+    }
+    
+    ctx.restore();
+
+</script>
+</html>

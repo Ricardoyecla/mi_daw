@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    ctx.save();
+    
+   ctx.fillStyle="#00dead";
+   ctx.font="30pt Courier";
+    ctx.fillText("Hola esto es un ejmplo",10,120);
+    
+    ctx.fillStyle="BlueViolet";
+   ctx.font="20pt arial";
+    ctx.fillText("Otro ...",10,200);
+    
+    
+    ctx.restore();
+
+</script>
+</html>
