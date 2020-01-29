@@ -13,15 +13,11 @@
         let capaError=document.getElementById("error");
          
         fetch("https://jorgesanchez.net/servicios/poesia.php")
-            .then(function(respuesta){ 
-                return respuesta.text()
-            })
-            .then(function (texto){
+            .then(respuesta=>respuesta.text())
+            .then(texto=>{
                 pre.innerHTML=texto;
             })
-            .catch(function(error){
-                capaError.innerHTML=error
-            });
+            .catch(error=>{capaError.innerHTML=error});
    </script>
 </body>
 </html>

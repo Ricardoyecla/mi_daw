@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Binary Large Objetecs</title>
+</head>
+<body>
+   <h1>AJAX Binary Large Objetecs</h1>
+   <p>Esta llegando la imagen</p>
+   <div></div>
+   <script>
+        var padre=document.querySelector("div");
+             
+        fetch("https://source.unsplash.com/random")
+            .then(respuesta=>{
+                if(respuesta.ok){
+                    return respuesta.blob();
+                } else {
+                    throw new Error("La imagen no ha llegado bien.")
+                }
+        })
+            .then(blob=>{
+                let imagen=document.createElement("img");
+                
+                imagen.setAttribute("src",URL.createObjectURL(blob));
+                padre.appendChild(imagen);
+                
+                document.querySelector('p').innerHTML="Cargada";
+                
+            })
+            .catch(error=>{datos.innerHTML="Error " +error});
+   </script>
+</body>
+</html>

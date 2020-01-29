@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX con formato JSON</title>
+</head>
+<body>
+   <h1>NIF Aleatorios</h1>
+   <h3 id="datos"></h3>
+   <script>
+        let datos=document.getElementById("datos");
+         
+        fetch("https://jorgesanchez.net/servicios/nifaleatorio.php")
+            .then(respuesta=>{
+                if(respuesta.OK){
+                    return respuesta.json();
+                } else {
+                    throw new Error("El nif no ha llegado bien.")
+                }
+        })
+            .then(listaNif=>{
+                datos.textContent=listaNif[0]["numero"];
+            })
+            .catch(error=>{datos.innerHTML="Error " +error});
+   </script>
+</body>
+</html>
