@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX con formato JSON</title>
+</head>
+<body>
+   <h1>NIF Aleatorios</h1>
+   <h3 id="datos"></h3>
+   <ul>
+       
+   </ul>
+   <script>
+        let lista=document.querySelector("ul");
+         
+        fetch("https://jorgesanchez.net/servicios/nifaleatorio.php?n=10&tipo=nie",{method:"get",mode:"cors"})
+            .then(respuesta=>{
+                    return respuesta.json();
+            })
+            .then(listaNie=>{
+                for (let nie of listaNie) {
+                    let li=document.createElement("li");
+                    li.textContent=nie.numero;
+                    lista.appendChild(li)
+                }
+                    
+            })
+            .catch(error=>{datos.innerHTML="Error " +error});
+   </script>
+</body>
+</html>
