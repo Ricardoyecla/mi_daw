@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocalización</title>
+</head>
+<body>
+    Pulsa el botón para geolocalizarte : )))
+    <input type="button" value="Geolocalizar" id="boton"/>
+    <div id="info"></div>
+    <script>
+        function getLocation(){
+                     
+            if (navigator && navigator.geolocation) {
+                //Le pasamos dos fucniciones callbacks, una para obtener la dirección y otra
+                //en el caso de error.
+                navigator.geolocation.getCurrentPosition(traeLocation,errorDeLocation);
+            }else{
+                rellenaInfo("La geolocalización no funciona en este navegador");
+            }
+        }
+        
+        function traeLocation(posicion){
+            var location= "Latitud: " + posicion.coords.latitude + ".<br>Longitud: " +posicion.coords.longitude;
+            rellenaInfo(location);
+            
+        }
+        
+        function errorDeLocation(error){
+            var msg;
+            
+            switch (error.code){
+                case 1: msg="Sin permiso del usuario";
+                        break;
+                case 2: msg="Información no esta disponible";
+                        break;
+                case 3: msg="Tiempo de espera finalizado para la solicitud";
+                        break;
+                default:msg="Error al solicitar la localizzciṕon";
+                        break;   
+            }
+        }
+        
+        function rellenaInfo(texto){
+            document.getElementById("info").innerHTML=texto;
+        }
+        document.getElementById("boton").addEventListener("click",getLocation);
+    </script>
+</body>
+</html>
