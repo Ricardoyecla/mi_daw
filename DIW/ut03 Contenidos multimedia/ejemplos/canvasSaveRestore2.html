@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    ctx.fillStyle="red";
+    ctx.fillRect(20,20,50,50);
+    
+    ctx.save();
+    
+    var grd=ctx.createLinearGradient(90,20,90,70);
+    grd.addColorStop(0,"yellow");
+    grd.addColorStop(1,"red");
+    
+    ctx.fillStyle=grd;
+    ctx.fillRect(90,20,50,50);
+    
+    ctx.restore();
+    
+    ctx.fillRect(160,20,50,50);
+    
+   
+   
+</script>
+</html>

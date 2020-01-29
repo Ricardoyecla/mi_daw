@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocalización Aula</title>
+</head>
+<body>
+    Pulsa la tecla para localizarte
+    <input type="button" value="Geolocalizar" id="boton"/>
+    <div id="capa"></div>
+    <script>    
+    
+    function getLoc(){
+        if (navigator && navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(TraeLocation,errorDeLocation);
+        }else{
+            alert("Tu navegador no dispone de geolocalización");
+        }
+    }
+    
+    function TraeLocation(posicion){
+        var location="Latitud: " + posicion.coords.latitude + "<br>"+"Longitud: "+posicion.coords.longitude;
+        rellenaCapa(location);
+    }
+        
+    function errorDeLocation(er){
+        var msg="";
+        
+        switch(er.code){
+            case 1:msg="Sin permiso del usuario";
+                break;
+            case 2:msg="Información no disponible";
+               break;
+            case 3: msg="Tiempo de espera finalizado";
+                 break;
+            default: msg="A psado cualqueir cosa";
+                break;
+        }
+        rellenaCapa(msg);
+    }
+    
+    function rellenaCapa(texto){
+        document.getElementById("capa").innerHTML=texto;
+    }
+        
+    document.getElementById("boton").addEventListener("click",getLoc,false);
+    </script>
+</body>
+</html>

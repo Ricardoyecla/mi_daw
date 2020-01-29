@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    var imagen=new Image();
+    imagen.src="img/tri.jpg";
+    
+    imagen.onload=function(){
+        
+        ctx.drawImage(imagen,10,10);
+        ctx.drawImage(imagen,350,10,100,100);
+        ctx.drawImage(imagen,80,80,80,50,500,10,400,400)
+        
+        //cuatro primero porción de imagen
+        //5 y 6 posicion en el canvas
+        //dos últimos tamaño
+        
+    }
+    
+    ctx.fillStyle="BlueViolet";
+    ctx.font="45pt Courier";
+     
+    ctx.fillText("Hola no se que poner ...",10,500);
+    
+    ctx.fillStyle="orange";
+    ctx.font="40pt arial";
+     
+    ctx.fillText("Pues nada : ))) ...",400,600);
+    
+    
+    
+    
+
+   
+</script>
+</html>

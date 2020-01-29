@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <audio src="avion.mp3" id="avion"></audio>
+    <canvas id="lienzo" width="1000px" height="600px"></canvas>
+</body>
+<script>
+    var canvas=document.getElementById("lienzo");
+    var ctx=canvas.getContext("2d");
+    
+    var sonido=document.getElementById("avion");
+    
+    function pintar(x,y){
+        ctx.fillStyle="orange";
+        ctx.beginPath();
+        ctx.arc(x,y,10,0,Math.PI*2);
+        ctx.fill();
+    }
+    
+    function borrar(){
+        canvas.width=canvas.width;
+    }
+    
+    var pelotaX=150;
+    var pelotaY=150;
+    var dirx=2;
+    var diry=3;
+    
+    pintar(pelotaX,pelotaY);
+    
+    setInterval(function(){
+        
+    if (pelotaX>300 || pelotaX<0){
+        dirx=dirx*-1;
+        sonido.play();
+    }
+        
+    if (pelotaY<0 || pelotaY>300){
+        diry*=-1;
+        sonido.play();
+    }
+        
+    
+    pelotaX=pelotaX+dirx;
+    pelotaY=pelotaY+diry;
+        borrar();
+        pintar(pelotaX,pelotaY);
+        
+    },35);
+</script>
+</html>
