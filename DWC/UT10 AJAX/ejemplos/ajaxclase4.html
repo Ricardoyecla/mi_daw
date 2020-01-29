@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax  blob</title>
+</head>
+<body>
+    <h1>Ajax para imagenes con blog</h1>
+    <p>Esta llegando la imagen</p>
+    <div></div>
+    <script>
+        let padre=document.querySelector('div');
+        
+        fetch("https://source.unsplash.com/random")
+            .then(function(respuesta){
+                if (respuesta.ok){
+                    return respuesta.blob();
+                }else{
+                    throw new Error("La imagen no ha llegado bien");
+                }
+            })
+            .then(function(blob){
+                let imagen=document.createElement("img");
+                imagen.setAttribute("src",URL.createObjectURL(blob));
+                padre.appendChild(imagen);
+                document.querySelector('p').textContent="Cargada";
+            })
+            .catch(function(error){
+                capaError.innerHTML=err;
+        });
+    </script>
+</body>
+</html>

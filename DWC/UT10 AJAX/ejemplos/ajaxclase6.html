@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax  Json</title>
+</head>
+<body>
+    <h1>Nif aleatorios</h1>
+    <p></p>
+    <h3 id="error"></h3>  
+    <script>
+        let error=document.getElementById('error');
+        let form=new FormData();
+        
+        form.append("nif","1234567A");
+        
+        fetch("https://jorgesanchez.net/servicios/validarNIF.php",{       method:"post",
+            body:form
+            })
+            .then(function(respuesta){
+                return respuesta.json();
+            })
+            .then(function(dato){
+                document.querySelector('p').innerHTML=dato.error.mensaje;
+                
+            })
+            .catch(function(error){
+                capaError.innerHTML=error;
+        });
+    </script>
+</body>
+</html>

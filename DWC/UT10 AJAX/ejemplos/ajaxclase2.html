@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax1</title>
+</head>
+<body>
+    <h1>Poesías aleatorías</h1>
+    <pre></pre>
+    <h3 id="error"></h3>    
+    <script>
+        let pre=document.querySelector('pre');
+        let capaError=document.getElementById('error');
+        
+        fetch("https://jorgesanchez.net/servicios/poesia.php")
+            .then(respuesta=>respuesta.text())
+            .then(texto=>{pre.innerHTML=texto})
+            .catch(error=>{capaError.innerHTML=error})
+    </script>
+</body>
+</html>
