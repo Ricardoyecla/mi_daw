@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar usuario aleatorio</title>
+    <style>
+        figure{
+            border: 1px solid black;
+            width:230px;
+            text-align: center;  
+        }
+        img{
+            width: 95%;
+            margin: 2px auto;
+        }
+        figcaption{
+            text-align: center;
+        }
+        button{
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+   <figure id='0'>
+      <img id="imagen" src="" >
+      <figcaption id="nombre"></figcaption>
+      <figcaption id="pais"></figcaption>
+      <figcaption id="correo"></figcaption>
+      <figcaption id="direccion"></figcaption>
+      <button>Cambiar</button>
+    </figure>
+    <script>
+        fetch("https://randomuser.me/api")
+            .then(respuesta=>respuesta.json())
+            .then (function(datos){
+                let persona=datos.results[0];
+                let imagenURL=persona.picture.large;
+                let nombre=persona.name.first+ " " + persona.name.last;
+                let direccion=persona.location.street.name;
+                let pais=persona.location.country;
+                let correo=persona.email;
+            
+                document.getElementById("imagen").src=imagenURL;
+                document.getElementById("nombre").innerHTML=nombre;
+                document.getElementById("direccion").innerHTML=direccion;
+                document.getElementById("pais").innerHTML=pais;
+                document.getElementById("correo").innerHTML=correo;
+                
+            })
+            .catch(error=>{console.log(error)});
+    </script>
+</body>
+</html>
