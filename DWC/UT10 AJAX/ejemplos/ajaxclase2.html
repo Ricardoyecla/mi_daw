@@ -5,17 +5,41 @@
     <title>Ejemplo ajax1</title>
 </head>
 <body>
-    <h1>Poesías aleatorías</h1>
-    <pre></pre>
-    <h3 id="error"></h3>    
+    <h1>Validación DNI</h1>
+    <form action="https://jorgesanchez.net/servicios/validarNIF.php" method="post">
+        <label for="nif">Escribe el NIF a validar</label><br>
+        <input type="text" id="nif" name="nif"><br>
+        <button>comprobar</button>
+    </form>
+    <h3 id="resultado"></h3>    
     <script>
-        let pre=document.querySelector('pre');
-        let capaError=document.getElementById('error');
+        let capaResultado=document.getElementById('resultado');
         
-        fetch("https://jorgesanchez.net/servicios/poesia.php")
-            .then(respuesta=>respuesta.text())
-            .then(texto=>{pre.innerHTML=texto})
-            .catch(error=>{capaError.innerHTML=error})
+        var form=document.querySelector("form");
+        var boton=document.querySelector("button");
+        
+        function comprobar(e){
+            e.preventDefault();
+            
+            let data= new FormData(form);
+            
+            fetch(form.getAttribute("action"),{
+                method:form.getAttribute("method"),
+                body:data
+            })
+            .then(function(respuesta){
+                respuesta.json()
+            })
+            .then(function(j){
+                capaResultado.textContent=j.error.mensaje;
+            })
+            .catch(function(e){
+                capaResultado.innerHTML=e;
+            })
+        }
+        
+        boton.addEventListener("click",comprobar);
+        
     </script>
 </body>
 </html>
