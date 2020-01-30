@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax  Json</title>
+</head>
+<body>
+    <h1>Envio de datos con JSON</h1>  
+    <h3 id="error"></h3>
+    <div id="resultado"></div>  
+    <script>
+        let data={
+            title:"Mi mensaje",
+            body:"Mensaje de prueba",
+            userId:5
+        }
+        form.addEventListener("https://jsonplaceholder.typicode.com/posts", 
+            method:'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type":"application/json; charset=UTF-8"
+            }
+        })
+        .then(function(respuesta){
+                return respuesta.json();
+            })
+            .then(function(json){console.log(json)})
+            .catch(function(error){ capaError.innerHTML=error;});
+    </script>
+</body>
+</html>
