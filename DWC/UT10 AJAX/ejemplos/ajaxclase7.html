@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax  Json</title>
+</head>
+<body>
+    <h1>Validar Nif utilizando POST y datos desde un formulario</h1>
+    <form action="https://jorgesanchez.net/servicios/validarNIF.php" method="post">
+        <label for="nif">Escriba el NIF que desea validar</label><br>
+        <input type="text" id="nif" name="nif"><br>
+    </form>    
+    <h3 id="error"></h3>
+    <div id="resultado"></div>  
+    <script>
+        var form=document.querySelector("form");
+        var capaResultado=document.getElementById("resultado");
+        var capaError=document.getElementById("error");
+        var inputNif=document.getElementById("nif");
+        
+        form.addEventListener("summit",function(e){
+            e.preventDefault();
+            let data=new FormData(form);
+            fetch(form.getAttribute("action"),{
+                method:form.getAttribute("method"),
+                body:data
+            })
+            .then(function(respuesta){
+                return respuesta.json();
+            })
+            .then(function(datos){
+                capaResultado.textContent=datos.error.mensaje;
+            })
+            .catch(function(error){
+                capaError.innerHTML=error;
+        });
+        
+        /*let error=document.getElementById('error');
+        let form=new FormData();
+        
+        form.append("nif","1234567A");
+        
+        fetch("https://jorgesanchez.net/servicios/validarNIF.php",{       method:"post",
+            body:form
+            })
+            .then(function(respuesta){
+                return respuesta.json();
+            })
+            .then(function(dato){
+                document.querySelector('p').innerHTML=dato.error.mensaje;
+                
+            })
+            .catch(function(error){
+                capaError.innerHTML=error;
+        });*/
+    </script>
+</body>
+</html>
