@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo ajax1</title>
+    <link rel="stylesheet" href="css/estilo.css" type="text/css">
+</head>
+<body>
+    <div id="contenedor"></div>
+    <script>
+        function pintarUsuario(capa,usuario){
+    
+        capa.innerHTML=`<img src=${usuario.picture.large}>`+
+            `<figcaption>${usuario.name.first}</figcaption>`+
+            `<figcaption>${usuario.name.last}</figcaption>`+
+            `<figcaption>${usuario.location.street}</figcaption>`+
+            `<figcaption>${usuario.location.state}</figcaption>`+
+            `<figcaption>${usuario.email}</figcaption>`+
+            `<button>Cambiar</button>`
+        }
+
+        function anadirEventoBoton(caja){
+            var boton=caja.querySelector("button");
+            
+            boton.addEventListener("click",function(e){
+                
+                fetch("https://randomuser.me/api")
+                  .then(res=>res.json()) 
+                  .then(function(listaUsuarios){
+                    var usuario=listaUsuarios.results[0];
+                    pintarUsuario(caja,usuario);
+                    anadirEventoBoton(caja);
+            
+                })
+            })
+
+        }
+
+        fetch("https://randomuser.me/api/?results=10")
+            .then(function(res){
+                
+                return res.json()})
+            .then(function(listaUsuarios){
+                console.log(listaUsuarios);
+                for( var usario of listaUsuarios.results){
+                    
+                    let caja=document.createElement("figure");
+                    pintarUsuario(caja,usario);
+                    anadirEventoBoton(caja)
+                    var contenedor=document.querySelector("div");
+                    contenedor.appendChild(caja);
+                }
+            })
+            .catch(function(error){console.log(error)});
+
+    </script>
+</body>
+</html>

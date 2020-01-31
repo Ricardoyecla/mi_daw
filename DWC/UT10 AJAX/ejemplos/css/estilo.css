@@ -1,0 +1,17 @@
+figure{
+    text-align: center;
+}
+
+div figure{
+    float:left;
+    width: 20%;
+    padding: 3px;
+}
+
+div figure:nth-of-type(odd){
+    background-color: darksalmon;
+}
+
+figure:hover{
+    background-color: burlywood;
+}
