@@ -1,0 +1,14 @@
+*{
+    margin: 0;    
+
+}
+#contenedor{
+    text-align: center;
+}
+
+img{
+    transform: rotate(90deg);
+    width: 60%;
+    margin: 0 auto;
+    border: 2px solid darksalmon;
+}
