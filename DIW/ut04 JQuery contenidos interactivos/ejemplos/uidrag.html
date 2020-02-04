@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        .mia {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#draggable").draggable();
+        });
+        $(function() {
+            $("#draggable-axi").draggable({ axis: "x" });
+        });
+        $(function() {
+            $("#draggable-cancel").draggable({ cancel: ".no" });
+        });
+        $(function() {
+            $("#draggable-disable").draggable({ disabled: true });
+        });
+        $(function() {
+            $("#draggable-opacity").draggable({ opacity: 0.35 });
+        });
+         $(function() {
+            $("#draggable-zindex").draggable({zIndex: 100 });
+        });
+       
+    </script>
+</head>
+
+<body>
+    <h1>Métodos de Draggable.</h1>
+        <ul>
+         <li>$ (selector) .draggable ("destroy"); Elimina la funcionalidad que pueden arrastrarse por completo. Esta opción hace regresar al elemento seleccionado de nuevo a su estado inicial.</li>
+        <li>$ (selector) .draggable ("disable "); Deshabilita el elemento arrastrable.</li>
+        <li>$ (selector) .draggable ("enable"); Activa el elemento arrastrable.</li>
+        <li>$ (selector).draggable ("opción", OptionName, "valor"); Obtiene o establece cualquier opción en el elemento arrastrable. el tercer argumento se puede omitir. De otro modo, si se establece valor, al OptionName se agrega el valor proporcionado
+        <li>$ (selector) .draggable ("widget"); Devuelve el elemento .ui.draggable.  </li> 
+        </ul>
+      
+    <div id="draggable" class="ui-widget-content mia">
+        <p>Drag me around</p>
+    </div>
+    <div id="draggable-axi" class="ui-widget-content mia">
+        <p>Drag me around</p>
+    </div>
+    <div id="draggable-cancel" class="ui-widget-content mia">
+        <p class="no">No aquí Drag me around</p>
+    </div>
+    <div id="draggable-disable" class="ui-widget-content mia">
+        <p >No Drag me around</p>
+    </div>
+    <div id="draggable-opacity" class="ui-widget-content mia">
+        <p>Drag me around</p>
+    </div>
+    <div id="draggable-zindex" class="ui-widget-content mia">
+        <p>Drag me around</p>
+    </div>
+    </body>
+
+</html>
