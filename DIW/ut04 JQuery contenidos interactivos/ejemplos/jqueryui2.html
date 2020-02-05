@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery </title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https:/resources/demos/style.css">
+    
+    <style>
+        .ui-menu {
+            width: 100px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $(".pablo").checkboxradio();
+            $("#paraFecha").datepicker({ 
+                dateFormat: 'dd-mm-yy', 
+                defaultDate:new Date()
+            });
+        });
+        
+    </script>
+</head>
+
+<body>
+   <h3>Radio Grupo</h3>
+   <fieldset>
+       <legend>Selecciona una dirección</legend>
+       <label for="radio1">Yecla</label>
+       <input class="pablo" type="radio" name="radio" id="radio1">
+       <label for="radio2">Pinoso</label>
+       <input class="pablo" type="radio" name="radio" id="radio2">
+       <label for="radio3">Caudete</label>
+       <input class="pablo" type="radio" name="radio" id="radio3">
+   </fieldset>
+  
+    <h3>Radio Grupo</h3>
+   <fieldset>
+       <legend>Selecciona una dirección</legend>
+       <label for="checkbox1">Yecla</label>
+       <input type="checkbox" name="checkbox1" id="checkbox1">
+       <label for="checkbox2">Pinoso</label>
+       <input type="checkbox" name="checkbox2" id="checkbox2">
+       <label for="checkbox3">Caudete</label>
+       <input type="checkbox" name="checkbox3" id="checkbox3">
+   </fieldset>
+    <p>Fecha:<input type="text" id="paraFecha"></p>
+</body>
+</html>

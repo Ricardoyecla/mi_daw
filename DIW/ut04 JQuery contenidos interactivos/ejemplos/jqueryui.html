@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery </title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https:/resources/demos/style.css">
+    
+    <style>
+        .ui-menu {
+            width: 100px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#dialog").dialog();
+            $("#menu").menu();
+            $("#acordeon").accordion();
+            var listaOpciones=[
+                "España",
+                "Marruecos",
+                "Nueva Zelanda",
+                "Canada",
+                "Chino"
+            ];
+            $("#paises").autocomplete({
+               source:listaOpciones 
+            });
+        });
+    </script>
+</head>
+
+<body>
+   
+        <div id="dialog" title="Ejemplo de ventana dia">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo eum enim quidem dolorem ullam necessitatibus nemo impedit reprehenderit libero blanditiis!
+
+            <input type="text">
+
+            <ul id="menu">
+                <li>
+                    <div class="ui-state-disabled">Libros</div>
+                </li>
+                <li>
+                    <div>Ropa</div>
+                </li>
+                <li>
+                    <div>Electronica</div>
+                    <ul>
+                        <li><div>PC</div></li>
+                        <li><div>Tablet</div></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <div id="acordeon">
+        <h2>Sección1</h2>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis maiores ipsum excepturi, molestiae vel neque. Similique asperiores corporis, repellat incidunt.</p>
+            <div class="ui-widget">
+                <label for="paises">Paises</label>
+                <input id="paises" type="text">
+            </div>
+        </div>
+        <h2>Sección2</h2>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis maiores ipsum excepturi, molestiae vel neque. Similique asperiores corporis, repellat incidunt.</p>
+        </div>
+        <h2>Sección3</h2>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis maiores ipsum excepturi, molestiae vel neque. Similique asperiores corporis, repellat incidunt.</p>
+        </div>
+    </div>
+    
+</body>
+
+</html>
