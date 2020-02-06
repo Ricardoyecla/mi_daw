@@ -31,7 +31,20 @@
 </html>
 
 
-<!--respuesta.blob();
+<!--
+   jQuery.ajax({
+        url: 'http://example.com/image.jpg',
+        xhrFields:{
+            responseType: 'blob'
+        },
+        success: function(data){            
+            var blobData = data;
+            var url = window.URL || window.webkitURL;
+            var src = url.createObjectURL(data);
+            $('#result-image').attr("src", src);
+        }
+});
+respuesta.blob();
     
 imagen.setAttribute("src",URL.createObjectURL(blob));
 padre.appendChild(imagen);
