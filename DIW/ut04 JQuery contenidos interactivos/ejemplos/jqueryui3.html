@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery </title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   
+    
+    <style>
+        .ui-menu {
+            width: 100px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#pestaña").tabs({event: "mouseover"});
+            $(document).tooltip();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="pestaña">
+        <ul>
+            <li><a href="#tabs-x">Pestaña1</a> </li>
+            <li><a href="#tabs-2">Pestaña1</a> </li>
+            <li><a href="#tabs-3">Pestaña1</a> </li>
+            <li><a href="#tabs-4">Pestaña1</a> </li>
+        </ul>
+        <div id="tabs-x">
+            zdfgsdñk ldsfjkla 
+             asdĺfjaslñdk j
+             a aslfj alñksdjfasdñlkfjklasdfjkl jklsdfjklañdlskfjasdiljfalñdsjkfLorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat suscipit animi nisi, at. Voluptatibus repellat architecto minima dignissimos non recusandae laudantium, inventore, quis nobis voluptatem assumenda tempora! Culpa eveniet, adipisci.
+             <p><label for="edad">Introduce la edad</label>
+             <input type="text" id="edad" name="edad" title="Esto es lo que muestra sdfasdf asdf  adf">
+             </p>
+        </div>
+        <div id="tabs-2">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat suscipit animi nisi, at. Voluptatibus repellat architecto minima dignissimos non recusandae laudantium, inventore, quis nobis voluptatem assumenda tempora! Culpa eveniet, adipisci.
+        </div>
+        <div id="tabs-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat suscipit animi nisi, at. Voluptatibus repellat architecto minima dignissimos non recusandae laudantium, inventore, quis nobis voluptatem assumenda tempora! Culpa eveniet, adipisci.
+        </div>
+        <div id="tabs-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat suscipit animi nisi, at. Voluptatibus repellat architecto minima dignissimos non recusandae laudantium, inventore, quis nobis voluptatem assumenda tempora! Culpa eveniet, adipisci.
+        </div>
+    </div>
+</body>
+</html>

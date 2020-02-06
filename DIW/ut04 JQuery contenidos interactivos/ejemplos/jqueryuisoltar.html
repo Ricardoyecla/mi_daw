@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery </title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   
+    
+    <style>
+        .mia {
+            width: 150px;
+            height: 150px;
+            padding: 2em;
+            border: 1px solid black;
+            
+        }
+        .mia1 {
+            width: 100px;
+            height: 100px;
+            padding: 2em;
+            border: 1px solid black;
+            
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function(){
+          $("#arrastrable").draggable({opacity:0.50});
+          $("#contenedor").droppable({
+              drop:function(e,ui){
+                  $(this).addClass("ui-state-highlight");
+                  $(this).find("p").html("Soltado");
+                  alert(ui.draggable.attr('id'));
+                  ui.draggable.find("p").html("ajñsdlkfj");   
+              },
+              over:function(e,ui){
+                  alert(ui.draggable.attr('id'));
+              }
+          })  
+        });
+    </script>
+</head>   
+<body>
+     <div id="arrastrable" class="ui-widget-content mia1">
+    <p>Arrastrable</p>
+    </div>
+    <div id="contenedor" class="ui-widget-header mia">
+    <p>Soltar aquí</p>
+    </div>
+</body>
+</html>
