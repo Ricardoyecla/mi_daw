@@ -1,0 +1,14 @@
+{
+  "name": "para_node_js",
+  "version": "2.0.0",
+  "description": "Primer app para Node ",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Ricardo",
+  "license": "ISC"
+}

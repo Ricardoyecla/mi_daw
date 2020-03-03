@@ -2,10 +2,14 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/DIW/ut03 Contenidos multimedia/ejemplos/cordova/example/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/DIW/ut03 Contenidos multimedia/ejemplos/cordova/example/platforms" />
+>>>>>>> 976342015674fc793c97c92abdfe235eb51f9548
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
