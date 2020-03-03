@@ -5,9 +5,14 @@
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $.ajax({url:"https://jorgesanchez.net/servicios/pesia.php",success:function(respuesta){
-                $("div").html(respuesta);
-            }})
+            $.ajax({
+                url:"https://jorgesanchez.net/servicios/nifaleatorio.php?n=10",
+                dataType: "json",
+                success:function(respuesta){
+                    $.each(respuesta, function(i,elemento){
+                        $("ul").append("<li>"+elemento.numero+"</li>");
+                    })
+                }})
         })    
     })
 
@@ -15,7 +20,7 @@
 </head>
 <body>
 
-<div><h2> AJAX Trae poesía</h2></div>
+<div><h2> AJAX Trae poesía</h2><ul></ul></div>
 
 <button>Información</button>
 

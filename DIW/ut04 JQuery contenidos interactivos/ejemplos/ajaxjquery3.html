@@ -4,10 +4,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
+        var c=0;
         $("button").click(function(){
-            $.ajax({url:"https://jorgesanchez.net/servicios/pesia.php",success:function(respuesta){
-                $("div").html(respuesta);
-            }})
+            $.ajax({
+                url:"https://source.unsplash.com/random",
+                xhrFields:{
+                    responseType: 'blob'
+                },
+                success:function(respuesta){
+                    var src=URL.createObjectURL(respuesta);
+                    c++;
+                    $("div").append('<img id="'+ c +'">');
+                    $("#"+c).attr("src",src);
+                },
+                error:function(e){
+                    console.log(e);
+                }})
         })    
     })
 
@@ -15,7 +27,8 @@
 </head>
 <body>
 
-<div><h2> AJAX Trae poesía</h2></div>
+<div><h2> AJAX Trae poesía</h2><ul></ul></div>
+
 
 <button>Información</button>
 
