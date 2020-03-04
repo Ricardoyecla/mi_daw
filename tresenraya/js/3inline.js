@@ -41,8 +41,13 @@ function salirCasilla(e) {
 }
 
 function encimaCasilla(e) {
+    console.log("me je")
     e.preventDefault();
     return true;
+}
+function soltarEnCasilla(e) {
+    console.log("hoadjfasñdlfjk")
+    console.log(e.dataTransfer.getData("Data")+" soltado")
 }
 
 function InicioJuego() {
@@ -60,7 +65,8 @@ function InicioJuego() {
     for (let casilla of casillas){
         casilla.addEventListener("dragenter",entrarCasilla,false);
         casilla.addEventListener("dragleave",salirCasilla,false);
-        casilla.addEventListener("drapover",encimaCasilla,false);
-        casilla.addEventListener("drop",soltarenCasilla,false);
+        casilla.addEventListener("dragover",encimaCasilla,false);
+        //casilla.addEventListener("drapover",soltarEnCasilla,false);
+        casilla.addEventListener("drop",soltarEnCasilla,false);
     }
 }
